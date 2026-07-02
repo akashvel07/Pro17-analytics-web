@@ -2858,6 +2858,72 @@ textarea {
   color: var(--brand);
 }
 
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  background: white;
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--brand);
+  border-radius: 0 0 8px 8px;
+  list-style: none;
+  padding: 12px 0;
+  margin-top: 25px; /* space between nav and dropdown */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 100;
+}
+
+/* Invisible hover bridge directly attached to the menu */
+.dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+
+#about-toggle:checked ~ .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+#about-toggle:checked ~ label.hb-link svg {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+.dropdown-wrapper > label.hb-link svg {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 12px 24px;
+  color: #000b2e;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.dropdown-menu li a:hover {
+  color: var(--brand);
+}
+
 .hb-menu-btn {
   width: 36px;
   height: 36px;
@@ -3492,4 +3558,48 @@ textarea {
 .cursor-hover {
   width: 64px;
   height: 64px;
+}
+
+/* ===================== PRELOADER ===================== */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0b1021;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-left-color: #8f1a1e;
+  border-radius: 50%;
+  animation: preloader-spin 1s linear infinite;
+}
+
+@keyframes preloader-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===================== WHO WE ARE HEADER ===================== */
+.who-we-are-header {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: #f3f3f3;
+  z-index: 100;
+  overflow: visible;
 }

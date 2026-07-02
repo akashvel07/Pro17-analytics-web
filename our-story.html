@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Pro17 Analytics</title>
+  <meta name="description" content="Pro17 Analytics specializes in Data Analytics, AI, Cloud Engineering, Digital Engineering, IoT Solutions, and Consulting Services that transform your business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/cal-sans" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===================== TOP NAVIGATION ===================== -->
+  <header class="who-we-are-header">
+    <!-- Nav -->
+    <nav class="hb-nav" id="hbNav">
+      <a href="#" class="hb-logo-link">
+        <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-logo-img">
+      </a>
+      <ul class="hb-nav-links" id="hbNavLinks">
+        <li><a href="index.html" class="hb-link active">Home</a></li>
+        <li class="dropdown-wrapper">
+          <label for="about-toggle" class="hb-link" style="cursor: pointer;">
+            About 
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </label>
+          <input type="checkbox" id="about-toggle" style="display: none;" />
+          <ul class="dropdown-menu">
+            <li><a href="who-we-are.html" onclick="window.location.href='who-we-are.html';">Who We Are</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" class="hb-link">
+            Services 
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hb-link">
+            Expertise 
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+          </a>
+        </li>
+        <li><a href="contact.html" class="hb-link">Contact</a></li>
+      </ul>
+      <button class="hb-menu-btn" id="hbMenuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="hb-mobile-menu" id="hbMobileMenu">
+      <div class="hb-mm-header">
+        <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-mm-logo">
+        <button class="hb-mm-close" id="hbMenuClose" aria-label="Close menu">✕</button>
+      </div>
+      <ul class="hb-mm-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Expertise</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="#contact" class="hb-mm-cta">Start Your AI Journey <span class="hb-arr">↗</span></a>
+    </div>
+  </header>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="cta-section" style="margin-top: 80px; padding: 120px 0; position: relative; overflow: hidden;">
+    <style>
+      .firefly {
+        position: absolute;
+        border-radius: 50%;
+        background-color: #fff;
+        pointer-events: none;
+        animation: floatFirefly var(--duration) infinite alternate ease-in-out;
+        animation-delay: var(--delay);
+        box-shadow: 0 0 15px var(--glow-color), 0 0 30px var(--glow-color);
+        z-index: 0;
+      }
+      @keyframes floatFirefly {
+        0% { transform: translate(0, 0) scale(0.8); opacity: 0.3; }
+        50% { opacity: 1; }
+        100% { transform: translate(var(--move-x), var(--move-y)) scale(1.3); opacity: 0.3; }
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector('.cta-section');
+        if (!container) return;
+        const colors = ['#00e5ff', '#3b82f6', '#ffffff', '#ffeb3b'];
+        for (let i = 0; i < 45; i++) {
+          let f = document.createElement('div');
+          f.className = 'firefly';
+          let size = Math.random() * 3 + 2;
+          f.style.width = size + 'px';
+          f.style.height = size + 'px';
+          f.style.left = Math.random() * 100 + '%';
+          f.style.top = Math.random() * 100 + '%';
+          f.style.setProperty('--duration', (Math.random() * 6 + 3) + 's');
+          f.style.setProperty('--delay', (Math.random() * -10) + 's');
+          f.style.setProperty('--move-x', (Math.random() * 140 - 70) + 'px');
+          f.style.setProperty('--move-y', (Math.random() * 140 - 70) + 'px');
+          f.style.setProperty('--glow-color', colors[Math.floor(Math.random() * colors.length)]);
+          container.appendChild(f);
+        }
+      });
+    </script>
+    <div class="cta-laser"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="cta-content" data-animate="fade-up" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <h1 class="cta-headline" style="font-size: 36px; margin-bottom: 12px;">Our story</h1>
+        <p class="cta-sub" style="font-size: 14px; margin: 0;">Home \ Our story</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== OUR STORY CONTENT SECTION ===================== -->
+  <section class="digital-data-section" style="padding: 100px 0; background-color: #ffffff;">
+    <div class="container" style="display: flex; gap: 60px; flex-wrap: wrap; align-items: flex-start;">
+      <!-- Left Image -->
+      <div class="digital-left" style="flex: 1; min-width: 300px; text-align: center; position: sticky; top: 120px;" data-animate="fade-right">
+        <style>
+          @keyframes floatIllustration {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+          }
+        </style>
+        <img src="our-story-3d-rocket.png" alt="Our Story Journey" style="margin-left: 50px; width: 100%; max-width: 500px; border-radius: 8px; animation: floatIllustration 4s ease-in-out infinite; mix-blend-mode: darken; filter: contrast(1.2) brightness(1.05);">
+      </div>
+      <!-- Right Content -->
+      <div class="digital-right" style="flex: 1; min-width: 300px;" data-animate="fade-left">
+        <span style="color: #8f1a1e; font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">OUR STORY</span>
+        <h2 style="font-size: 32px; color: #1a1a1a; margin: 16px 0 24px; line-height: 1.3; font-weight: 700;">A journey defined by passion, expertise, and a commitment to excellence.</h2>
+        
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          Welcome to the compelling narrative of Pro17analytics. Our story unfolds in the vibrant city of Tirunelveli, India, where a dedicated team of highly skilled software development experts came together to create something extraordinary.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          In the realm of digital transformation, Pro17analytics is a beacon of innovation. Our mission is to make digital platforms accessible through a Modern Data Solution. Harnessing the power of technology, including cloud computing and mobile applications, we craft cutting-edge products and solutions that empower our clients to not only keep pace but lead in their industries.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          Our journey is characterized by a profound proficiency in technology, an unwavering commitment to innovation, and a dedication to achieving tangible results in product and solution development. This approach has not only garnered success but has also cultivated robust partnerships with companies globally.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          The name "pro17" is not merely a brand; it carries a deep significance derived from the inspiring biblical verse Proverbs 1:7. Authored by Solomon, the son of David, this verse declares, "The fear of the Lord is the beginning of knowledge," urging us to embrace Wisdom. In this context, "beginning" signifies the origin or foundation of knowledge, emphasizing the pivotal role of God in the quest for wisdom.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          At the core of our ethos is the acknowledgment and seeking of God's guidance, a principle that empowers individuals within our team to make wise decisions and discern truth from falsehood. With this motto, our aim is nothing short of revolutionizing businesses by infusing their products with the full potential of our informational and analytical skills.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          Proverbs 1:7 stands as our guiding principle, aspiring to nurture a profound understanding of faith and the significance of wisdom in decision-making. Its enduring message resonates within us, offering valuable insights and guidance as we pursue our vision.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 20px; font-size: 15px;">
+          Aligned with our overarching goal, we aspire to become the foremost provider of data analytics solutions. Our mission is to empower businesses, enabling them to unleash the full potential of their data and foster growth.
+        </p>
+        <p style="color: #555; line-height: 1.7; margin-bottom: 24px; font-size: 15px; font-weight: 500; color: #1a1a1a;">
+          Join us on this remarkable journey where technology, wisdom, and innovation converge to shape a future where possibilities are limitless. At Pro17analytics, we are not just shaping the future; we are defining it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+<footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="footer-logo" href="#">
+            <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="footer-logo-img">
+          </a>
+          <p class="footer-tagline">Transforming Data into Strategic Insights — empowering businesses with AI, cloud, and modern engineering.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Data &amp; Analytics</a></li>
+            <li><a href="#">Cloud Engineering</a></li>
+            <li><a href="#">Digital Engineering</a></li>
+            <li><a href="#">Cyber Security</a></li>
+            <li><a href="#">Training</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Expertise</h4>
+          <ul>
+            <li><a href="#">Data and AI</a></li>
+            <li><a href="#">Modern Apps</a></li>
+            <li><a href="#">IoT Solutions</a></li>
+            <li><a href="#">Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">Who We Are</a></li>
+            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Pro17 Analytics. All rights reserved.</p>
+        <p>Transforming Data into Strategic Insights</p>
+      </div>
+    </div>
+    <div class="footer-huge-text">Pro17 Analytics</div>
+  </footer>
+
+  <!-- Custom Cursor -->
+  <div class="custom-cursor"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

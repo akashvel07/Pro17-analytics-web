@@ -16,14 +16,23 @@
   'use strict';
 
   
-  /* ── SMOOTH SCROLL ── */
+  /* 🔹 SMOOTH SCROLL 🔹 */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
+      const href = this.getAttribute('href');
+      if (href === '#') {
         e.preventDefault();
-        const top = target.getBoundingClientRect().top + window.scrollY - 80;
-        window.scrollTo({ top, behavior: 'smooth' });
+        return;
+      }
+      try {
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const top = target.getBoundingClientRect().top + window.scrollY - 80;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      } catch (err) {
+        // ignore invalid selectors like "#"
       }
     });
   });
@@ -250,5 +259,26 @@
     processSteps.forEach(step => processObserver.observe(step));
   }
 
-  console.log('Pro17 Analytics — Site initialized 🚀');
+  // Dropdown Click Logic
+  const dropdownWrappers = document.querySelectorAll('.dropdown-wrapper');
+  
+  dropdownWrappers.forEach(wrapper => {
+    const mainLink = wrapper.querySelector('a.hb-link');
+    if (mainLink) {
+      mainLink.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        wrapper.classList.toggle('open');
+      });
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    dropdownWrappers.forEach(wrapper => {
+      if (!wrapper.contains(e.target)) {
+        wrapper.classList.remove('open');
+      }
+    });
+  });
+
+  console.log('Pro17 Analytics Site initialized 🚀');
 })();
