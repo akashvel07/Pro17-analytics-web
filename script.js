@@ -335,3 +335,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
   servicePanels.forEach(panel => observer.observe(panel));
 });
+
+// ==========================================
+// BACK TO TOP WITH SCROLL PROGRESS
+// ==========================================
+document.addEventListener('DOMContentLoaded', function () {
+  const progressWrap = document.querySelector('.progress-wrap');
+  if (progressWrap) {
+    const progressPath = document.querySelector('.progress-wrap path');
+    const pathLength = progressPath.getTotalLength();
+    
+    progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+    progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+    progressPath.style.strokeDashoffset = pathLength;
+    progressPath.getBoundingClientRect();
+    progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+    
+    const updateProgress = function () {
+      const scroll = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = pathLength - (scroll * pathLength / docHeight);
+      progressPath.style.strokeDashoffset = progress;
+    }
+    
+    updateProgress();
+    window.addEventListener('scroll', updateProgress);
+    
+    const offset = 50;
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > offset) {
+        progressWrap.classList.add('active-progress');
+      } else {
+        progressWrap.classList.remove('active-progress');
+      }
+    });
+    
+    progressWrap.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+});

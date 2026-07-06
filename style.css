@@ -3802,19 +3802,26 @@ textarea {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.service-panel-header-box {
+  background-color: #0b1021;
+  padding: 32px;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
 .service-panel-title {
   font-size: 24px;
-  color: #1a1a1a;
+  color: #ffffff;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
 .service-panel-desc {
   font-size: 14px;
-  color: #4b5563;
+  color: #d1d5db;
   line-height: 1.6;
-  margin-bottom: 30px;
-  max-width: 90%;
+  margin-bottom: 0;
+  max-width: 95%;
 }
 
 /* Grid and Cards */
@@ -3974,4 +3981,78 @@ textarea {
 .service-card:hover .service-icon {
   transform: scale(1.1);
   background-color: #ffffff;
+}
+
+/* =========================================
+   BACK TO TOP SCROLL PROGRESS
+========================================= */
+.progress-wrap {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  height: 46px;
+  width: 46px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: all 400ms linear;
+  background-color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.progress-wrap.active-progress {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.progress-wrap::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px #f3f4f6; /* Solid light gray track */
+  z-index: 0;
+}
+
+.progress-wrap svg.progress-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.progress-wrap svg.progress-circle path {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 4;
+  box-sizing: border-box;
+  transition: all 400ms linear;
+}
+
+.progress-wrap svg.progress-arrow {
+  color: #1a1a1a;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+  transition: color 400ms linear;
+}
+
+.progress-wrap:hover {
+  background-color: var(--brand);
+}
+
+.progress-wrap:hover svg.progress-circle path {
+  stroke: #ffffff;
 }
