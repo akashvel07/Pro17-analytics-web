@@ -3865,10 +3865,10 @@ textarea {
 
 /* --- NEW SERVICE CARD STYLES --- */
 .service-card {
-  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  background: #ffffff;
   border-radius: 20px;
   padding: 40px 32px;
-  color: #ffffff;
+  color: #1a1a1a;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -3876,7 +3876,8 @@ textarea {
   height: 100%;
 
   transition: all 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -3896,7 +3897,7 @@ textarea {
 .service-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 15px 30px rgba(145, 26, 28, 0.3);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: transparent;
 }
 
 .service-card:hover::before {
@@ -3919,13 +3920,18 @@ textarea {
   font-size: 18px; /* Decreased heading size */
   font-weight: 700;
   margin: 0;
-  color: #ffffff;
+  color: #1a1a1a;
   line-height: 1.2;
+  transition: color 0.4s ease;
+}
+
+.service-card:hover .service-card-header h4 {
+  color: #ffffff;
 }
 
 .service-card-content p {
   font-size: 14px;
-  color: #e0e0e0;
+  color: #555555;
   line-height: 1.5;
   margin: 0;
   transition: color 0.4s ease;
@@ -3938,7 +3944,7 @@ textarea {
 .service-icon {
   width: 32px;
   height: 32px;
-  background-color: #ffffff;
+  background-color: rgba(145, 26, 28, 0.1);
   color: var(--brand);
   display: flex;
   justify-content: center;
@@ -3951,4 +3957,5 @@ textarea {
 
 .service-card:hover .service-icon {
   transform: scale(1.1);
+  background-color: #ffffff;
 }
