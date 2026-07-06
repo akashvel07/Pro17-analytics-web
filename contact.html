@@ -17,30 +17,20 @@
   <header class="who-we-are-header">
     <!-- Nav -->
     <nav class="hb-nav" id="hbNav">
-      <a href="#" class="hb-logo-link">
+      <a href="index.html" class="hb-logo-link">
         <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-logo-img">
       </a>
       <ul class="hb-nav-links" id="hbNavLinks">
-        <li><a href="index.html" class="hb-link active">Home</a></li>
-        <li class="dropdown-wrapper">
-          <label for="about-toggle" class="hb-link" style="cursor: pointer;">
-            About 
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-          </label>
-          <input type="checkbox" id="about-toggle" style="display: none;" />
-          <ul class="dropdown-menu">
-            <li><a href="who-we-are.html" onclick="window.location.href='who-we-are.html';">Who We Are</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-          </ul>
-        </li>
+        <li><a href="index.html" class="hb-link">Home</a></li>
+        <li><a href="about.html" class="hb-link">About</a></li>
         <li>
-          <a href="#" class="hb-link">
+          <a href="services.html" class="hb-link">
             Services 
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
         </li>
         <li>
-          <a href="#" class="hb-link">
+          <a href="expertise.html" class="hb-link">
             Expertise 
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
           </a>
@@ -55,13 +45,13 @@
     <!-- Mobile Menu -->
     <div class="hb-mobile-menu" id="hbMobileMenu">
       <div class="hb-mm-header">
-        <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-mm-logo">
+        <a href="index.html" class="hb-logo-link"><img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-mm-logo"></a>
         <button class="hb-mm-close" id="hbMenuClose" aria-label="Close menu">✕</button>
       </div>
       <ul class="hb-mm-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
+        <li><a href="services.html">Services</a></li>
         <li><a href="#">Expertise</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -198,21 +188,26 @@
     <div class="container" style="max-width: 600px; margin: 0 auto;">
       <h2 style="font-size: 36px; color: var(--heading); margin-bottom: 50px; font-weight: 700;">How may we help you?</h2>
       
-      <form class="custom-contact-form" style="text-align: left;">
+      <form action="https://formsubmit.co/gowthamakash99@gmail.com" method="POST" class="custom-contact-form" style="text-align: left;">
+        <input type="hidden" name="_captcha" value="false">
         <div style="margin-bottom: 20px;">
-          <input type="text" placeholder="Name" style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; outline: none; font-family: inherit; transition: border-color 0.3s ease;">
+          <input type="text" name="Name" placeholder="Name" required style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; outline: none; font-family: inherit; transition: border-color 0.3s ease;">
         </div>
         
         <div style="margin-bottom: 20px;">
-          <input type="email" placeholder="Email" style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; outline: none; font-family: inherit; transition: border-color 0.3s ease;">
+          <input type="email" name="Email" placeholder="Email" required style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; outline: none; font-family: inherit; transition: border-color 0.3s ease;">
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <input type="tel" name="Mobile" placeholder="Mobile Number" style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; outline: none; font-family: inherit; transition: border-color 0.3s ease;">
         </div>
         
         <div style="margin-bottom: 30px;">
-          <textarea placeholder="Message" rows="6" style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; resize: vertical; outline: none; font-family: inherit; transition: border-color 0.3s ease;"></textarea>
+          <textarea name="Message" placeholder="Message" required rows="6" style="width: 100%; padding: 20px 24px; border: 1px solid #e5e7eb; background-color: #f9f9fb; border-radius: 12px; font-size: 16px; color: #333; resize: vertical; outline: none; font-family: inherit; transition: border-color 0.3s ease;"></textarea>
         </div>
         
         <div style="text-align: center;">
-          <button type="submit" style="width: 100%; background-color: #8f1a1e; color: #fff; border: none; padding: 20px; font-size: 18px; font-weight: 700; border-radius: 12px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 12px 24px rgba(143, 26, 30, 0.25);">Submit</button>
+          <button type="submit" style="width: 100%; text-align: center; background-color: #8f1a1e; color: #fff; border: none; padding: 20px; font-size: 18px; font-weight: 700; border-radius: 12px; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 12px 24px rgba(143, 26, 30, 0.25);">Submit</button>
         </div>
       </form>
     </div>
@@ -261,8 +256,7 @@
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
-            <li><a href="#">Who We Are</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>

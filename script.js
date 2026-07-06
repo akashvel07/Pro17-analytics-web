@@ -282,3 +282,56 @@
 
   console.log('Pro17 Analytics Site initialized 🚀');
 })();
+
+
+/* ====== VERTICAL SERVICES SCROLLSPY ====== */
+document.addEventListener('DOMContentLoaded', () => {
+  const serviceTabBtns = document.querySelectorAll('.service-tab-btn');
+  const servicePanels = document.querySelectorAll('.service-panel');
+  if (serviceTabBtns.length === 0) return;
+
+  // Click to scroll
+  serviceTabBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-target');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        const offset = 100; // Account for fixed header
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = targetPanel.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+
+  // Intersection Observer for active state
+  const observerOptions = {
+    root: null,
+    rootMargin: '-40% 0px -40% 0px', // Triggers near the center of the viewport
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const targetId = entry.target.getAttribute('id');
+        serviceTabBtns.forEach(btn => {
+          if (btn.getAttribute('data-target') === targetId) {
+            btn.classList.add('active');
+          } else {
+            btn.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  servicePanels.forEach(panel => observer.observe(panel));
+});

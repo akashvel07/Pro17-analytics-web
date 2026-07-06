@@ -120,6 +120,7 @@ textarea {
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: var(--brand);
   color: var(--white);
@@ -2953,7 +2954,7 @@ textarea {
   position: fixed;
   inset: 0;
   background: #fff;
-  z-index: 200;
+  z-index: 10000;
   display: flex;
   flex-direction: column;
   padding: 28px 32px 40px;
@@ -3602,4 +3603,352 @@ textarea {
   background-color: #f3f3f3;
   z-index: 100;
   overflow: visible;
+}
+/* Fix logo alignment in Tech Stack section */
+.tech-logo-item img { display: block; margin: 0 auto 10px auto !important; }
+\n
+/* ==============================================
+   SERVICES TABS SECTION
+============================================== */
+.services-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Sidebar */
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #e5e5e5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.service-tab-btn {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: var(--font);
+}
+
+.service-tab-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.service-tab-btn.active {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+/* Content Area */
+.services-content-area {
+  background-color: #e5e5e5;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.service-panel {
+  display: none;
+  animation: fadeInTab 0.4s ease forwards;
+}
+
+.service-panel.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-panel-title {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-panel-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+/* Grid and Cards */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .services-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  
+  .service-tab-btn {
+    flex: 1 1 calc(50% - 10px);
+    padding: 12px;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .service-tab-btn {
+    flex: 1 1 100%;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================================
+   SERVICES TABS SECTION
+============================================== */
+.services-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Sidebar */
+.services-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #e5e5e5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.service-tab-btn {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  padding: 18px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-family: var(--font);
+}
+
+.service-tab-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.service-tab-btn.active {
+  background-color: #212121;
+  color: #ffffff;
+}
+
+/* Content Area */
+.services-content-area {
+  background-color: #e5e5e5;
+  border-radius: 8px;
+  padding: 30px;
+}
+
+.service-panel {
+  display: none;
+  animation: fadeInTab 0.4s ease forwards;
+}
+
+.service-panel.active {
+  display: block;
+}
+
+@keyframes fadeInTab {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.service-panel-title {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.service-panel-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 90%;
+}
+
+/* Grid and Cards */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .services-sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+  }
+  
+  .service-tab-btn {
+    flex: 1 1 calc(50% - 10px);
+    padding: 12px;
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .service-tab-btn {
+    flex: 1 1 100%;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* override scrollspy display */
+.service-panel { display: block !important; margin-bottom: 60px !important; padding-top: 20px !important; opacity: 1 !important; transform: none !important; animation: none !important; }
+.services-sidebar { position: sticky !important; top: 120px !important; align-self: start !important; }
+
+/* override panel backgrounds */
+.services-content-area { background-color: transparent !important; padding: 0 !important; }
+.service-panel { background-color: #f3f3f3 !important; padding: 40px !important; border-radius: 8px !important; margin-bottom: 40px !important; }
+
+/* override active tab color */
+.service-tab-btn.active { background-color: var(--brand) !important; color: var(--white) !important; box-shadow: inset 0px 4px 6px rgba(255, 255, 255, 0.4), inset 0px -4px 6px rgba(0, 0, 0, 0.4) !important; }
+.service-tab-btn.active { background-color: var(--brand) !important; color: var(--white) !important; box-shadow: inset 0px 4px 6px rgba(255, 255, 255, 0.4), inset 0px -4px 6px rgba(0, 0, 0, 0.4) !important; }
+
+
+
+/* override services sidebar bg */
+.services-sidebar { background-color: #f3f3f3 !important; }
+
+/* --- NEW SERVICE CARD STYLES --- */
+.service-card {
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border-radius: 20px;
+  padding: 40px 32px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 280px;
+  height: 100%;
+
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--brand);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(145, 26, 28, 0.3);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-card-content, .service-card-header {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.service-card-header h4 {
+  font-size: 18px; /* Decreased heading size */
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.service-card-content p {
+  font-size: 14px;
+  color: #e0e0e0;
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.service-card:hover .service-card-content p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.service-icon {
+  width: 32px;
+  height: 32px;
+  background-color: #ffffff;
+  color: var(--brand);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
 }
