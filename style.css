@@ -2743,6 +2743,17 @@ textarea {
 
   .footer-grid {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-grid .social-links {
+    justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
   }
 
   .counters-grid {
@@ -3025,7 +3036,7 @@ textarea {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: #5E0ED7;
+  background: var(--brand);
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -3040,7 +3051,7 @@ textarea {
 }
 
 .hb-mm-cta:hover {
-  background: #4a0ab0;
+  background: var(--brand-dark);
   transform: translateY(-2px);
   color: #fff;
 }
