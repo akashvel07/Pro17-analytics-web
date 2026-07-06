@@ -3848,7 +3848,12 @@ textarea {
 
 /* override scrollspy display */
 .service-panel { display: block !important; margin-bottom: 60px !important; padding-top: 20px !important; opacity: 1 !important; transform: none !important; animation: none !important; }
-.services-sidebar { position: sticky !important; top: 120px !important; align-self: start !important; }
+@media (min-width: 993px) {
+  .services-sidebar { position: sticky !important; top: 120px !important; align-self: start !important; z-index: 10 !important; }
+}
+@media (max-width: 992px) {
+  .services-sidebar { position: relative !important; top: auto !important; z-index: 10 !important; margin-bottom: 10px !important; }
+}
 
 /* override panel backgrounds */
 .services-content-area { background-color: transparent !important; padding: 0 !important; }
