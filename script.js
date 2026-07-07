@@ -376,3 +376,50 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 });
+
+// Contact Form AJAX Submission and Popup
+document.addEventListener('DOMContentLoaded', () => {
+  const contactForm = document.getElementById('ajaxContactForm');
+  const successPopup = document.getElementById('successPopup');
+  const closePopupBtn = document.getElementById('closePopupBtn');
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      
+      // Submit the form data using Fetch
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Show the success popup
+        if (successPopup) {
+          successPopup.style.display = 'flex';
+        }
+        contactForm.reset(); // Clear the form
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        alert('There was a problem submitting your form. Please try again.');
+      });
+    });
+  }
+  
+  if (closePopupBtn && successPopup) {
+    closePopupBtn.addEventListener('click', () => {
+      successPopup.style.display = 'none';
+    });
+  }
+});
