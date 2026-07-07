@@ -4056,3 +4056,98 @@ textarea {
 .progress-wrap:hover svg.progress-circle path {
   stroke: #ffffff;
 }
+
+/* --- OPTION 15: OUTLINED TILES (SIDEBAR) --- */
+.opt15-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: transparent !important;
+  padding: 0 !important;
+}
+
+.opt15-sidebar .service-tab-btn {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff !important;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.opt15-sidebar .service-tab-btn:hover {
+  border-color: rgba(145, 26, 28, 0.3);
+  background-color: #ffffff !important;
+}
+
+.opt15-sidebar .service-tab-btn.active {
+  background-color: #ffffff !important;
+  border: 1px solid var(--brand) !important;
+  box-shadow: 0 4px 12px rgba(145, 26, 28, 0.08) !important;
+  color: var(--brand) !important;
+}
+
+.opt15-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.04);
+  border-radius: 6px;
+  margin-right: 12px;
+  color: #6c7381;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.opt15-sidebar .service-tab-btn.active .opt15-icon {
+  background: rgba(145, 26, 28, 0.1);
+  color: var(--brand);
+}
+
+.opt15-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  text-align: left;
+}
+
+.opt15-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+  transition: color 0.3s ease;
+}
+
+.opt15-subtitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6c7381;
+  margin-top: 2px;
+  transition: color 0.3s ease;
+}
+
+.opt15-sidebar .service-tab-btn.active .opt15-title,
+.opt15-sidebar .service-tab-btn.active .opt15-subtitle {
+  color: var(--brand);
+}
+
+.opt15-arrow {
+  display: flex;
+  align-items: center;
+  color: #a0aab2;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.opt15-sidebar .service-tab-btn.active .opt15-arrow {
+  color: var(--brand);
+  transform: translateX(2px);
+}
