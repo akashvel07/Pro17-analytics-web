@@ -218,10 +218,18 @@
   const customCursor = document.querySelector('.custom-cursor');
   
   if (customCursor && window.matchMedia("(pointer: fine)").matches) {
+    let cursorVisible = false;
+
     window.addEventListener('mousemove', (e) => {
       const posX = e.clientX;
       const posY = e.clientY;
-      
+
+      // Reveal cursor on first move
+      if (!cursorVisible) {
+        cursorVisible = true;
+        customCursor.style.opacity = '1';
+      }
+
       customCursor.animate({
         left: `${posX}px`,
         top: `${posY}px`
@@ -290,19 +298,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const servicePanels = document.querySelectorAll('.service-panel');
   if (serviceTabBtns.length === 0) return;
 
-  // Click to scroll
+  // Scroll to target on sidebar button click
   serviceTabBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       const targetId = btn.getAttribute('data-target');
       const targetPanel = document.getElementById(targetId);
+      
       if (targetPanel) {
         const offset = 100; // Account for fixed header
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = targetPanel.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
         const offsetPosition = elementPosition - offset;
-
+        
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
@@ -311,29 +320,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Intersection Observer for active state
-  const observerOptions = {
-    root: null,
-    rootMargin: '-40% 0px -40% 0px', // Triggers near the center of the viewport
-    threshold: 0
-  };
+  // Highly accurate distance-based viewport scrollspy tracker (Highlights buttons as user scrolls)
+  function updateActiveTabOnScroll() {
+    let activePanelId = null;
+    let minDistance = Infinity;
+    const viewportCenter = window.innerHeight / 2;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const targetId = entry.target.getAttribute('id');
-        serviceTabBtns.forEach(btn => {
-          if (btn.getAttribute('data-target') === targetId) {
-            btn.classList.add('active');
-          } else {
-            btn.classList.remove('active');
-          }
-        });
+    servicePanels.forEach(panel => {
+      const rect = panel.getBoundingClientRect();
+      
+      // If the panel covers the center of the screen, it is active
+      if (rect.top <= viewportCenter && rect.bottom >= viewportCenter) {
+        activePanelId = panel.getAttribute('id');
+        minDistance = -1;
+      } else if (minDistance !== -1) {
+        // Otherwise, find the panel closest to the viewport center
+        const panelCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(panelCenter - viewportCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          activePanelId = panel.getAttribute('id');
+        }
       }
     });
-  }, observerOptions);
 
-  servicePanels.forEach(panel => observer.observe(panel));
+    if (activePanelId) {
+      serviceTabBtns.forEach(btn => {
+        if (btn.getAttribute('data-target') === activePanelId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+    }
+  }
+
+  // Bind scroll and resize events for live tracking
+  window.addEventListener('scroll', updateActiveTabOnScroll);
+  window.addEventListener('resize', updateActiveTabOnScroll);
+  updateActiveTabOnScroll(); // Initial run
 });
 
 // ==========================================

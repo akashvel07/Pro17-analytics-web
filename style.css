@@ -3546,8 +3546,8 @@ textarea {
 
 .custom-cursor {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: -100px;
+  left: -100px;
   width: 24px;
   height: 24px;
   background-color: #fff;
@@ -3557,7 +3557,8 @@ textarea {
   z-index: 9999;
   mix-blend-mode: difference;
   display: none;
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), height 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
 @media (pointer: fine) {
@@ -4085,10 +4086,10 @@ textarea {
 }
 
 .opt15-sidebar .service-tab-btn.active {
-  background-color: #ffffff !important;
+  background-color: var(--brand) !important;
   border: 1px solid var(--brand) !important;
-  box-shadow: 0 4px 12px rgba(145, 26, 28, 0.08) !important;
-  color: var(--brand) !important;
+  box-shadow: 0 4px 12px rgba(145, 26, 28, 0.2) !important;
+  color: #ffffff !important;
 }
 
 .opt15-icon {
@@ -4106,8 +4107,8 @@ textarea {
 }
 
 .opt15-sidebar .service-tab-btn.active .opt15-icon {
-  background: rgba(145, 26, 28, 0.1);
-  color: var(--brand);
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
 .opt15-text {
@@ -4136,7 +4137,7 @@ textarea {
 
 .opt15-sidebar .service-tab-btn.active .opt15-title,
 .opt15-sidebar .service-tab-btn.active .opt15-subtitle {
-  color: var(--brand);
+  color: #ffffff;
 }
 
 .opt15-arrow {
@@ -4148,6 +4149,6 @@ textarea {
 }
 
 .opt15-sidebar .service-tab-btn.active .opt15-arrow {
-  color: var(--brand);
+  color: #ffffff;
   transform: translateX(2px);
 }

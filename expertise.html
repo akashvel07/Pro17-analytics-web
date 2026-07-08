@@ -148,214 +148,844 @@
 
         <!-- Content Area -->
         <div class="services-content-area">
-          
-          <!-- TAB 1: Data and AI -->
-          <div class="service-panel active" id="tab-data">
-            <div class="service-panel-header-box">
-              <h3 class="service-panel-title">Data and AI</h3>
-            <p class="service-panel-desc">AI is a powerful tool that can be used to analyze data and to find patterns and insights that would be impossible for humans to find on their own. AI can also be used to automate tasks, to create new products and services, and to solve complex problems.</p>
-            </div>
+          <style>
+            /* ── New Panel Layout ── */
+            .sp-new { 
+              padding: 0 0 60px 0 !important; 
+              background: transparent !important; 
+              border-radius: 0 !important; 
+              margin-bottom: 60px !important; 
+              border-bottom: 1px solid #e8e8ee;
+            }
+            .sp-new:last-child {
+              border-bottom: none;
+              margin-bottom: 0 !important;
+              padding-bottom: 0 !important;
+            }
+            .sp-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 20px; }
+            .sp-icon-box {
+              flex-shrink: 0; width: 48px; height: 48px; border-radius: 10px;
+              background: #f8f8fa; border: 1px solid #e8e8ee;
+              display: flex; align-items: center; justify-content: center;
+              font-size: 22px; color: #911A1C;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            }
+            .sp-meta { display: flex; flex-direction: column; gap: 2px; padding-top: 4px; }
+            .sp-counter {
+              font-size: 12px; font-weight: 700; letter-spacing: 1px;
+              color: #911A1C; font-family: 'Inter', sans-serif;
+            }
+            .sp-title {
+              font-size: clamp(20px, 2.5vw, 26px); font-weight: 800;
+              color: #1a1a1a; line-height: 1.2; margin: 0;
+            }
+            .sp-desc {
+              font-size: 14px; color: #6c7381; line-height: 1.75;
+              margin-bottom: 28px; max-width: 580px;
+            }
+            .sp-divider { height: 1px; background: #e8e8ee; margin-bottom: 24px; }
+            /* Pill chips */
+            .sp-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+            .sp-chip {
+              display: inline-flex; align-items: center; gap: 8px;
+              padding: 9px 16px; border-radius: 50px;
+              border: 1px solid #e2e2e8; background: #fff;
+              font-size: 13px; font-weight: 600; color: #1a1a1a;
+              cursor: default; transition: all 0.25s ease;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+            }
+            .sp-chip:hover {
+              border-color: rgba(145,26,28,0.4);
+              background: rgba(145,26,28,0.04);
+              color: #911A1C;
+              box-shadow: 0 2px 10px rgba(145,26,28,0.1);
+              transform: translateY(-1px);
+            }
+            .sp-grid-container {
+              display: grid;
+              grid-template-columns: 1fr 340px;
+              gap: 40px;
+              align-items: center;
+            }
+            .sp-content-col {
+              flex: 1;
+            }
+            .sp-ill-col {
+              width: 340px;
+              height: 250px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+            }
+            @media (max-width: 950px) {
+              .sp-grid-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+              }
+              .sp-ill-col {
+                width: 100%;
+                max-width: 380px;
+                height: 220px;
+                margin: 0 auto;
+              }
+            }
+
+            /* ── SVG Animations ── */
+            .svg-pulse { animation: svgPulse 2.5s ease-in-out infinite; }
+            .svg-spin { animation: svgSpin 25s linear infinite; transform-origin: center; }
+            .svg-spin-reverse { animation: svgSpinRev 20s linear infinite; transform-origin: center; }
+            .svg-dash { stroke-dasharray: 8 4; animation: svgDash 5s linear infinite; }
+            .svg-wave { animation: svgWave 3s ease-out infinite; transform-origin: center; }
+            .svg-float { animation: svgFloat 5s ease-in-out infinite; }
+            .svg-draw { stroke-dasharray: 120; stroke-dashoffset: 120; animation: svgDraw 3s cubic-bezier(0.4,0,0.2,1) forwards; }
+            .svg-scan { animation: svgScan 3.5s linear infinite; }
+            .svg-grid-bg { fill: url(#gridPattern); }
             
-            <div class="service-grid">
+            @keyframes svgPulse {
+              0%, 100% { opacity: 0.6; }
+              50% { opacity: 1; }
+            }
+            @keyframes svgSpin {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+            @keyframes svgSpinRev {
+              from { transform: rotate(360deg); }
+              to { transform: rotate(0deg); }
+            }
+            @keyframes svgDash {
+              to { stroke-dashoffset: -20; }
+            }
+            @keyframes svgWave {
+              0% { transform: scale(0.8); opacity: 0.6; }
+              100% { transform: scale(1.4); opacity: 0; }
+            }
+            @keyframes svgFloat {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-10px); }
+            }
+            @keyframes svgDraw {
+              to { stroke-dashoffset: 0; }
+            }
+            @keyframes svgScan {
+              0% { transform: translateY(-40px); opacity: 0; }
+              10% { opacity: 0.8; }
+              90% { opacity: 0.8; }
+              100% { transform: translateY(110px); opacity: 0; }
+            }
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-code-box-line"></i></div>
-                  <h4>Data Engineering</h4>
+            @keyframes drawCurve {
+              0% { stroke-dashoffset: 400; }
+              75%, 100% { stroke-dashoffset: 0; }
+            }
+            @keyframes barBounce1 {
+              0%, 5% { transform: scaleY(0.3); opacity: 0.5; }
+              15% { transform: scaleY(1.15); opacity: 1; }
+              20% { transform: scaleY(1); }
+              100% { transform: scaleY(1); opacity: 1; }
+            }
+            @keyframes barBounce2 {
+              0%, 15% { transform: scaleY(0.3); opacity: 0.5; }
+              30% { transform: scaleY(1.15); opacity: 1; }
+              35% { transform: scaleY(1); }
+              100% { transform: scaleY(1); opacity: 1; }
+            }
+            @keyframes barBounce3 {
+              0%, 30% { transform: scaleY(0.3); opacity: 0.5; }
+              45% { transform: scaleY(1.15); opacity: 1; }
+              50% { transform: scaleY(1); }
+              100% { transform: scaleY(1); opacity: 1; }
+            }
+            @keyframes barBounce4 {
+              0%, 45% { transform: scaleY(0.3); opacity: 0.5; }
+              60% { transform: scaleY(1.15); opacity: 1; }
+              65% { transform: scaleY(1); }
+              100% { transform: scaleY(1); opacity: 1; }
+            }
+            @keyframes barBounce5 {
+              0%, 60% { transform: scaleY(0.3); opacity: 0.5; }
+              75% { transform: scaleY(1.15); opacity: 1; }
+              80% { transform: scaleY(1); }
+              100% { transform: scaleY(1); opacity: 1; }
+            }
+            @keyframes dotPulse1 {
+              0%, 10% { transform: scale(0); opacity: 0; }
+              15% { transform: scale(1.4); opacity: 1; }
+              20% { transform: scale(1); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes dotPulse2 {
+              0%, 25% { transform: scale(0); opacity: 0; }
+              30% { transform: scale(1.4); opacity: 1; }
+              35% { transform: scale(1); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes dotPulse3 {
+              0%, 40% { transform: scale(0); opacity: 0; }
+              45% { transform: scale(1.4); opacity: 1; }
+              50% { transform: scale(1); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes dotPulse4 {
+              0%, 55% { transform: scale(0); opacity: 0; }
+              60% { transform: scale(1.4); opacity: 1; }
+              65% { transform: scale(1); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes dotPulse5 {
+              0%, 70% { transform: scale(0); opacity: 0; }
+              75% { transform: scale(1.4); opacity: 1; }
+              80% { transform: scale(1); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+
+            /* ── Digital Engineering Widget Animations ── */
+            .path-crawl {
+              animation: pathCrawl 3s linear infinite;
+            }
+            @keyframes pathCrawl {
+              to { stroke-dashoffset: -20; }
+            }
+            .loading-bar {
+              stroke-dasharray: 120;
+              stroke-dashoffset: 120;
+              animation: drawLoadingBar 3s ease-in-out infinite;
+            }
+            @keyframes drawLoadingBar {
+              0%, 10% { stroke-dashoffset: 120; }
+              50%, 70% { stroke-dashoffset: 0; }
+              100% { stroke-dashoffset: -120; }
+            }
+            .widget-pulse {
+              animation: widgetPulse 2.5s ease-in-out infinite alternate;
+            }
+            @keyframes widgetPulse {
+              0% { fill: rgba(145,26,28,0.02); }
+              100% { fill: rgba(145,26,28,0.08); }
+            }
+            .widget-fade-1 {
+              animation: widgetFade 2s ease-in-out infinite alternate;
+            }
+            .widget-fade-2 {
+              animation: widgetFade 2s ease-in-out infinite alternate;
+              animation-delay: 0.6s;
+            }
+            @keyframes widgetFade {
+              0% { opacity: 0.2; }
+              100% { opacity: 1; }
+            }
+
+            /* ── Skeleton Loading Wireframe Shimmers ── */
+            /* ── AI Infrastructure Hover & Acceleration Styles ── */
+            /* ── IoT 3D Mesh Hover & Acceleration Styles ── */
+            .iot-3d-container:hover .pipeline {
+              stroke: rgba(178,34,34,0.3) !important;
+            }
+            .iot-3d-container:hover .pipe-packet {
+              animation-duration: 0.8s !important;
+              stroke-width: 3px !important;
+            }
+            .iot-3d-container:hover .core-glow-shield {
+              filter: drop-shadow(0 0 16px rgba(178,34,34,0.6)) !important;
+            }
+            .iot-3d-container:hover .floating-card {
+              transform: translateY(-5px) scale(1.02);
+            }
+
+            /* ── IoT Radar Hover & Sync Animations ── */
+            .iot-radar-container:hover .radar-scan-line {
+              animation-duration: 2s !important;
+            }
+            .iot-radar-container:hover .radar-blip {
+              animation-duration: 0.5s !important;
+            }
+            .radar-scan-line {
+              animation: radarScanSweep 4s linear infinite;
+            }
+            @keyframes radarScanSweep {
+              from { transform: rotate(0deg); }
+              to { transform: rotate(360deg); }
+            }
+            /* Radar Blip Pulsing (synchronized with sweep) */
+            .radar-blip {
+              animation: blipPulse 4s infinite ease-out;
+            }
+            /* Delays set relative to line sweep degrees */
+            .blip-delay-1 { animation-delay: 2.8s; } /* 250 deg approx */
+            .blip-delay-2 { animation-delay: 0.8s; } /* 70 deg approx */
+            .blip-delay-3 { animation-delay: 2.0s; } /* 180 deg approx */
+            .blip-delay-4 { animation-delay: 3.6s; } /* 320 deg approx */
+
+            @keyframes blipPulse {
+              0%, 15% { transform: scale(1); opacity: 0.2; }
+              20% { transform: scale(1.6); opacity: 1; filter: drop-shadow(0 0 6px currentColor); }
+              30% { transform: scale(1.1); opacity: 0.8; }
+              100% { transform: scale(1); opacity: 0.2; }
+            }
+
+            /* ── Modern App 3D Stack Hover & Keyframe Animations ── */
+            .modern-stack-container:hover .floating-layer-1 {
+              transform: translateY(-10px);
+            }
+            .modern-stack-container:hover .floating-layer-2 {
+              transform: translateY(-5px);
+            }
+            .modern-stack-container:hover .floating-layer-3 {
+              transform: translateY(0px);
+            }
+            .modern-stack-container:hover .pipeline {
+              stroke: rgba(178,34,34,0.3) !important;
+            }
+            .modern-stack-container:hover .v-packet-1, 
+            .modern-stack-container:hover .v-packet-2 {
+              animation-duration: 1s !important;
+            }
+            .floating-layer-1, .floating-layer-2, .floating-layer-3 {
+              transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+            }
+            .v-packet-1 {
+              animation: vPacket1Anim 3s linear infinite;
+            }
+            .v-packet-2 {
+              animation: vPacket2Anim 3s linear infinite;
+              animation-delay: 1.5s;
+            }
+            @keyframes vPacket1Anim {
+              0% { cy: 170px; opacity: 0; }
+              20% { opacity: 0.9; }
+              80% { opacity: 0.9; }
+              100% { cy: 60px; opacity: 0; }
+            }
+            @keyframes vPacket2Anim {
+              0% { cy: 170px; opacity: 0; }
+              20% { opacity: 0.9; }
+              80% { opacity: 0.9; }
+              100% { cy: 60px; opacity: 0; }
+            }
+
+            /* ── Modern App Hover & Acceleration Styles ── */
+            .modern-app-container:hover .pipeline {
+              stroke: rgba(178,34,34,0.3) !important;
+            }
+            .modern-app-container:hover .pipe-packet {
+              animation-duration: 0.8s !important;
+              stroke-width: 3px !important;
+            }
+            .modern-app-container:hover .core-glow-shield {
+              filter: drop-shadow(0 0 16px rgba(178,34,34,0.6)) !important;
+              stroke-width: 3.5px !important;
+            }
+            .modern-app-container:hover .floating-card {
+              transform: translateY(-4px) scale(1.02);
+            }
+
+            /* ── IoT Infrastructure Hover & Acceleration Styles ── */
+            .iot-container:hover .pipeline {
+              stroke: rgba(178,34,34,0.3) !important;
+            }
+            .iot-container:hover .pipe-packet {
+              animation-duration: 0.8s !important;
+              stroke-width: 3px !important;
+            }
+            .iot-container:hover .core-glow-shield {
+              filter: drop-shadow(0 0 16px rgba(178,34,34,0.6)) !important;
+              stroke-width: 3.5px !important;
+            }
+            .iot-container:hover .floating-card {
+              transform: translateY(-4px) scale(1.02);
+            }
+            .gateway-icon-rotate {
+              animation: gatewayRotate 6s ease-in-out infinite alternate;
+            }
+            @keyframes gatewayRotate {
+              0% { transform: rotate(-4deg); }
+              100% { transform: rotate(4deg); }
+            }
+
+            .ai-container:hover .pipeline {
+              stroke: rgba(178,34,34,0.35) !important;
+            }
+            .ai-container:hover .pipe-packet {
+              animation-duration: 0.8s !important;
+              stroke-width: 3px !important;
+            }
+            .ai-container:hover .core-glow-shield {
+              filter: drop-shadow(0 0 16px rgba(178,34,34,0.6)) !important;
+              stroke-width: 3.5px !important;
+            }
+            .ai-container:hover .floating-card {
+              transform: translateY(-4px) scale(1.02);
+            }
+
+            .skeleton-loading {
+              animation: skeletonShimmer 1.8s ease-in-out infinite;
+            }
+            .sk-1 { animation-delay: 0s; }
+            .sk-2 { animation-delay: 0.3s; }
+            .sk-3 { animation-delay: 0.6s; }
+
+            @keyframes skeletonShimmer {
+              0% {
+                fill: rgba(145,26,28,0.02);
+                opacity: 0.4;
+              }
+              50% {
+                fill: rgba(145,26,28,0.12);
+                opacity: 1;
+              }
+              100% {
+                fill: rgba(145,26,28,0.02);
+                opacity: 0.4;
+              }
+            }
+
+            /* ── Intelligent Edge Data Pulse Flows ── */
+            .edge-flow-1 {
+              stroke-dashoffset: 165;
+              animation: edgeFlowAnim 2.5s linear infinite;
+            }
+            .edge-flow-2 {
+              stroke-dashoffset: 165;
+              animation: edgeFlowAnim 2.5s linear infinite;
+              animation-delay: 0.6s;
+            }
+            .edge-flow-3 {
+              stroke-dashoffset: 165;
+              animation: edgeFlowAnim 2.5s linear infinite;
+              animation-delay: 1.2s;
+            }
+            .edge-flow-4 {
+              stroke-dashoffset: 165;
+              animation: edgeFlowAnim 2.5s linear infinite;
+              animation-delay: 1.8s;
+            }
+            @keyframes edgeFlowAnim {
+              to {
+                stroke-dashoffset: 0;
+              }
+            }
+          </style>
+
+          <!-- TAB 1: Data & AI -->
+          <div class="service-panel sp-new active" id="tab-data">
+            <div class="sp-grid-container">
+              <div class="sp-content-col">
+                <div class="sp-header">
+                  <div class="sp-icon-box"><i class="ri-bar-chart-box-line"></i></div>
+                  <div class="sp-meta">
+                    <span class="sp-counter">01 / 03</span>
+                    <h3 class="sp-title">Data &amp; AI</h3>
+                  </div>
                 </div>
-                <div class="service-card-content">
-                  <p>Data Engineering in Pro17Analytics enables organizations to make sense of their data and gain valuable insights.</p>
+                <p class="sp-desc">AI is a powerful tool that can be used to analyze data and to find patterns and insights that would be impossible for humans to find on their own. We design and build the platforms, pipelines and models that make that possible.</p>
+                <div class="sp-divider"></div>
+                <div class="sp-chips">
+                  <span class="sp-chip">Data Engineering</span>
+                  <span class="sp-chip">Big Data, Data lakes &amp; Warehousing</span>
+                  <span class="sp-chip">BI &amp; Advanced Data Analysis</span>
+                  <span class="sp-chip">Modern data platforms</span>
+                  <span class="sp-chip">Data &amp; analytics Estate Development</span>
+                  <span class="sp-chip">Platform Migration</span>
+                  <span class="sp-chip">Data Visualization</span>
+                  <span class="sp-chip">Data Science and Machine Learning</span>
+                  <span class="sp-chip">Data Quality, Security &amp; Privacy</span>
                 </div>
               </div>
+              <div class="sp-ill-col">
+                <!-- AI Infrastructure Illustration -->
+                <div class="ai-container" style="cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
+                    <defs>
+                      <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#f8f9fa"/>
+                      </linearGradient>
+                      <linearGradient id="coreGlowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#B22222"/>
+                        <stop offset="100%" stop-color="#ff6b6b"/>
+                      </linearGradient>
+                      <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(178,34,34,0.04)" stroke-width="1"/>
+                      </pattern>
+                    </defs>
+                    <!-- Base glass card -->
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(178,34,34,0.12)" stroke-width="1.5"/>
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-database-2-line"></i></div>
-                  <h4>Big Data, Data lakes & Warehousing</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>With a well structured Big Data, Data lakes & Warehousing strategy Pro17Analytics help to process your data to generates high ROI.</p>
-                </div>
-              </div>
+                    <!-- Background isometric grid lines -->
+                    <line x1="170" y1="20" x2="310" y2="90" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="170" y1="20" x2="30" y2="90" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="30" y1="90" x2="170" y2="160" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="310" y1="90" x2="170" y2="160" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-bar-chart-box-line"></i></div>
-                  <h4>BI & Advanced Data Analysis</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>We use data to develop and test hypotheses, interpret findings & disseminate information that helps companies make better decisions.</p>
-                </div>
-              </div>
+                    <!-- Data Pipelines (Left to Core, Core to Right) -->
+                    <!-- Input Pipeline 1 (Top Left Database to Core) -->
+                    <path d="M 75 80 Q 120 70 156 102" fill="none" stroke="rgba(178,34,34,0.15)" stroke-width="1.5" stroke-linecap="round" class="pipeline"/>
+                    <path d="M 75 80 Q 120 70 156 102" fill="none" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="12 120" class="edge-flow-1 pipe-packet"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-server-line"></i></div>
-                  <h4>Modern data platforms</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>We offer simple & intuitive roadmap for any DPMF implementation, tailor-made to accelerate the business transition from a traditional data storage strategy to a DPMF approach.</p>
-                </div>
-              </div>
+                    <!-- Input Pipeline 2 (Bottom Left Database to Core) -->
+                    <path d="M 75 160 Q 120 170 156 128" fill="none" stroke="rgba(178,34,34,0.15)" stroke-width="1.5" stroke-linecap="round" class="pipeline"/>
+                    <path d="M 75 160 Q 120 170 156 128" fill="none" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="12 120" class="edge-flow-3 pipe-packet"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-building-4-line"></i></div>
-                  <h4>Data & analytics Estate Development</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Our consulting services help you rebuild existing solutions, automate manual processes and models, enable data-driven decision-making, and manage change within your company.</p>
-                </div>
-              </div>
+                    <!-- Output Pipeline 1 (Core to Top Right Card) -->
+                    <path d="M 184 102 Q 210 75 240 78" fill="none" stroke="rgba(178,34,34,0.15)" stroke-width="1.5" stroke-linecap="round" class="pipeline"/>
+                    <path d="M 184 102 Q 210 75 240 78" fill="none" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="12 120" class="edge-flow-2 pipe-packet"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-flight-takeoff-line"></i></div>
-                  <h4>Platform Migration</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro17 Analytics' Platform Migration service helps organizations move their applications, data, and workloads to the cloud securely and efficiently.</p>
-                </div>
-              </div>
+                    <!-- Output Pipeline 2 (Core to Bottom Right Card) -->
+                    <path d="M 184 128 Q 210 155 240 148" fill="none" stroke="rgba(178,34,34,0.15)" stroke-width="1.5" stroke-linecap="round" class="pipeline"/>
+                    <path d="M 184 128 Q 210 155 240 148" fill="none" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="12 120" class="edge-flow-4 pipe-packet"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-pie-chart-line"></i></div>
-                  <h4>Data Visualization</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro17 Analytics provides data visualization solutions to businesses to help them make sense of their data and gain insights for better decision-making.</p>
-                </div>
-              </div>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-brain-line"></i></div>
-                  <h4>Data Science and Machine Learning</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Data Science is a field that combines statistics, computer science, and domain knowledge to analyze large amounts of data and extract meaningful insights.</p>
-                </div>
-              </div>
+                    <!-- Database Cylinders (Left Side - Data Engineering) -->
+                    <!-- Database 1 (Top Left) -->
+                    <g class="floating-card" style="transition: transform 0.4s ease;">
+                      <!-- Cylinder body -->
+                      <path d="M 50 65 L 50 85 C 50 90, 80 90, 80 85 L 80 65" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" style="filter: drop-shadow(0 2px 5px rgba(0,0,0,0.03));"/>
+                      <ellipse cx="65" cy="65" rx="15" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+                      <ellipse cx="65" cy="72" rx="15" ry="4" fill="none" stroke="rgba(178,34,34,0.25)" stroke-width="1"/>
+                      <ellipse cx="65" cy="79" rx="15" ry="4" fill="none" stroke="rgba(178,34,34,0.25)" stroke-width="1"/>
+                      <!-- Server Status light -->
+                      <circle cx="65" cy="65" r="1.5" fill="#22c55e" class="svg-pulse"/>
+                    </g>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-shield-check-line"></i></div>
-                  <h4>Data Quality, Security & Privacy</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro 17 Analytics provides a secure and reliable platform for data quality, security, and privacy. It ensures data is accurate, up-to-date and protected from unauthorized access. It also provides robust privacy controls to help protect sensitive data.</p>
+                    <!-- Database 2 (Bottom Left) -->
+                    <g class="floating-card" style="transition: transform 0.4s ease; animation-delay: -0.5s;">
+                      <path d="M 50 145 L 50 165 C 50 170, 80 170, 80 165 L 80 145" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" style="filter: drop-shadow(0 2px 5px rgba(0,0,0,0.03));"/>
+                      <ellipse cx="65" cy="145" rx="15" ry="5" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+                      <ellipse cx="65" cy="152" rx="15" ry="4" fill="none" stroke="rgba(178,34,34,0.25)" stroke-width="1"/>
+                      <ellipse cx="65" cy="159" rx="15" ry="4" fill="none" stroke="rgba(178,34,34,0.25)" stroke-width="1"/>
+                      <circle cx="65" cy="145" r="1.5" fill="#22c55e" class="svg-pulse"/>
+                    </g>
+
+
+                    <!-- Central Glowing AI Core (Focal Point) -->
+                    <!-- Outer rotating electron rings -->
+                    <ellipse cx="170" cy="115" rx="38" ry="18" fill="none" stroke="rgba(178,34,34,0.2)" stroke-width="1.2" class="svg-spin" style="animation-duration: 6s;"/>
+                    <ellipse cx="170" cy="115" rx="52" ry="24" fill="none" stroke="rgba(178,34,34,0.12)" stroke-width="1" stroke-dasharray="6 8" class="svg-spin-reverse" style="animation-duration: 8s;"/>
+
+                    <!-- Glowing core block -->
+                    <g class="svg-pulse core-glow-container" style="animation-duration: 3s; transform-origin: 170px 115px;">
+                      <!-- Neural Hexagon processor -->
+                      <polygon points="170,95 188,105 188,125 170,135 152,125 152,105" fill="rgba(178,34,34,0.06)" stroke="url(#coreGlowGrad)" stroke-width="2.5" class="core-glow-shield" style="filter: drop-shadow(0 0 8px rgba(178,34,34,0.3));"/>
+                      <circle cx="170" cy="115" r="5" fill="#B22222" class="svg-pulse"/>
+                      <line x1="170" y1="115" x2="170" y2="100" stroke="#B22222" stroke-width="1"/>
+                      <line x1="170" y1="115" x2="157" y2="122" stroke="#B22222" stroke-width="1"/>
+                      <line x1="170" y1="115" x2="183" y2="122" stroke="#B22222" stroke-width="1"/>
+                    </g>
+
+
+                    <!-- Glassmorphism Analytics Panels (Right Side - Inference & Models) -->
+                    <!-- Panel 1 (Top Right Card) -->
+                    <g class="floating-card" style="transition: transform 0.4s ease; animation-delay: -1s;">
+                      <rect x="235" y="60" width="55" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));"/>
+                      <!-- Miniature dashboard bars -->
+                      <rect x="242" y="68" width="6" height="24" rx="1.5" fill="rgba(178,34,34,0.06)" stroke="rgba(178,34,34,0.3)" stroke-width="0.8" style="animation: barBounce1 2s ease-out infinite; transform-origin: 245px 92px;"/>
+                      <rect x="252" y="74" width="6" height="18" rx="1.5" fill="rgba(178,34,34,0.06)" stroke="rgba(178,34,34,0.3)" stroke-width="0.8" style="animation: barBounce2 2s ease-out infinite; transform-origin: 255px 92px;"/>
+                      <rect x="262" y="70" width="6" height="22" rx="1.5" fill="rgba(178,34,34,0.12)" stroke="#B22222" stroke-width="0.8" style="animation: barBounce3 2s ease-out infinite; transform-origin: 265px 92px;"/>
+                      <rect x="272" y="78" width="6" height="14" rx="1.5" fill="rgba(178,34,34,0.06)" stroke="rgba(178,34,34,0.3)" stroke-width="0.8" style="animation: barBounce4 2s ease-out infinite; transform-origin: 275px 92px;"/>
+                    </g>
+
+                    <!-- Panel 2 (Bottom Right Card - Vector Embedding Clusters) -->
+                    <g class="floating-card" style="transition: transform 0.4s ease; animation-delay: -1.5s;">
+                      <rect x="235" y="130" width="55" height="42" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));"/>
+                      <!-- Floating vector dots -->
+                      <circle cx="248" cy="144" r="2.5" fill="#B22222" class="svg-pulse"/>
+                      <circle cx="265" cy="140" r="2" fill="rgba(178,34,34,0.4)"/>
+                      <circle cx="254" cy="158" r="2" fill="rgba(178,34,34,0.4)"/>
+                      <circle cx="272" cy="154" r="2.5" fill="#B22222" class="svg-pulse" style="animation-delay: 0.5s;"/>
+                      <!-- Link line -->
+                      <line x1="248" y1="144" x2="265" y2="140" stroke="rgba(178,34,34,0.2)" stroke-width="0.8"/>
+                      <line x1="248" y1="144" x2="254" y2="158" stroke="rgba(178,34,34,0.2)" stroke-width="0.8"/>
+                    </g>
+
+
+                    <!-- HUD Overlays -->
+                    </svg>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- TAB 2: Modern Applications -->
-          <div class="service-panel" id="tab-modern">
-            <div class="service-panel-header-box">
-              <h3 class="service-panel-title">Modern Applications</h3>
-            <p class="service-panel-desc">Modern apps are software applications that are designed to run on the latest generation of mobile devices, such as smartphones and tablets. They are typically built using web technologies, such as HTML5, CSS, and JavaScript, and they are often delivered through app stores.</p>
-            </div>
-            
-            <div class="service-grid">
-
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-terminal-window-line"></i></div>
-                  <h4>Application Development</h4>
+          <div class="service-panel sp-new" id="tab-modern">
+            <div class="sp-grid-container">
+              <div class="sp-content-col">
+                <div class="sp-header">
+                  <div class="sp-icon-box"><i class="ri-terminal-window-line"></i></div>
+                  <div class="sp-meta">
+                    <span class="sp-counter">02 / 03</span>
+                    <h3 class="sp-title">Modern Applications</h3>
+                  </div>
                 </div>
-                <div class="service-card-content">
-                  <p>The team at Pro17 Analytics is highly skilled and experienced in the development of custom applications and is committed to providing the best customer service in the industry.</p>
-                </div>
-              </div>
-
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-smartphone-line"></i></div>
-                  <h4>Mobile Application</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>The app also allows users to create custom reports that can be shared with colleagues and stakeholders.</p>
+                <p class="sp-desc">Modern apps are software applications designed to run on the latest generation of web and mobile ecosystems, delivering fast, scalable, and responsive user experiences.</p>
+                <div class="sp-divider"></div>
+                <div class="sp-chips">
+                  <span class="sp-chip">Application Development</span>
+                  <span class="sp-chip">Mobile Application</span>
+                  <span class="sp-chip">Developing Cloud Strategies</span>
                 </div>
               </div>
+              <div class="sp-ill-col">
+                <!-- Modern Applications 3D Stack Illustration -->
+                <div class="modern-stack-container" style="cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
+                    <defs>
+                      <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#f8f9fa"/>
+                      </linearGradient>
+                      <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(178,34,34,0.04)" stroke-width="1"/>
+                      </pattern>
+                      <!-- Vertical Light Beam Gradient -->
+                      <linearGradient id="beamGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="rgba(178,34,34,0.01)"/>
+                        <stop offset="50%" stop-color="rgba(178,34,34,0.3)"/>
+                        <stop offset="100%" stop-color="rgba(178,34,34,0.01)"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Base glass card -->
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(178,34,34,0.12)" stroke-width="1.5"/>
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-cloud-windy-line"></i></div>
-                  <h4>Developing Cloud Strategies</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro17 analytics works closely with clients to understand their business needs, target audience, and goals and then creates a custom design plan to meet those needs.</p>
+                    <!-- Vertical Data Transmission Beams (Connecting the layers) -->
+                    <line x1="115" y1="50" x2="115" y2="190" stroke="url(#beamGrad)" stroke-width="2" stroke-dasharray="4 4"/>
+                    <line x1="225" y1="50" x2="225" y2="190" stroke="url(#beamGrad)" stroke-width="2" stroke-dasharray="4 4"/>
+
+                    <!-- Vertical rising/falling data packets -->
+                    <circle cx="115" cy="0" r="3.5" fill="#B22222" class="v-packet-1" style="filter: drop-shadow(0 0 4px #B22222);"/>
+                    <circle cx="225" cy="0" r="3.5" fill="#B22222" class="v-packet-2" style="filter: drop-shadow(0 0 4px #B22222);"/>
+
+
+                    <!-- LAYER 3 (BOTTOM): Cloud Infrastructure / Storage Database -->
+                    <g class="floating-layer-3">
+                      <!-- Base isometric plate -->
+                      <polygon points="170,145 270,172 170,199 70,172" fill="rgba(255,255,255,0.4)" stroke="rgba(178,34,34,0.15)" stroke-width="1" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.02));"/>
+                      <!-- Database Cylinders standing on the plate -->
+                      <!-- Left DB cylinder -->
+                      <path d="M 110 162 L 110 174 C 110 178, 120 178, 120 174 L 120 162" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <ellipse cx="115" cy="162" rx="5" ry="2" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <!-- Right DB cylinder -->
+                      <path d="M 220 162 L 220 174 C 220 178, 230 178, 230 174 L 230 162" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <ellipse cx="225" cy="162" rx="5" ry="2" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <circle cx="170" cy="172" r="1.5" fill="#22c55e" class="svg-pulse"/>
+                    </g>
+
+
+                    <!-- LAYER 2 (MIDDLE): API Routing / Logic Core -->
+                    <g class="floating-layer-2">
+                      <!-- Base isometric plate -->
+                      <polygon points="170,95 270,122 170,149 70,122" fill="rgba(255,255,255,0.6)" stroke="rgba(178,34,34,0.2)" stroke-width="1" style="filter: drop-shadow(0 4px 12px rgba(0,0,0,0.03));"/>
+                      <!-- Circuit connection tracks on API layer -->
+                      <path d="M 115 122 L 170 110 L 225 122" fill="none" stroke="rgba(178,34,34,0.3)" stroke-width="1.2"/>
+                      <circle cx="170" cy="110" r="3" fill="#B22222" class="svg-pulse"/>
+                      <circle cx="135" cy="117" r="2" fill="rgba(178,34,34,0.6)"/>
+                      <circle cx="205" cy="117" r="2" fill="rgba(178,34,34,0.6)"/>
+                    </g>
+
+
+                    <!-- LAYER 1 (TOP): User Interface / Presentation Layer -->
+                    <g class="floating-layer-1">
+                      <!-- Base isometric plate -->
+                      <polygon points="170,45 270,72 170,99 70,72" fill="rgba(255,255,255,0.85)" stroke="rgba(178,34,34,0.3)" stroke-width="1.2" style="filter: drop-shadow(0 6px 15px rgba(178,34,34,0.08));"/>
+                      <!-- Micro UI elements on the UI plate -->
+                      <!-- Browser card outline on top -->
+                      <polygon points="145,55 215,72 185,86 115,69" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <line x1="125" y1="64" x2="160" y2="72" stroke="rgba(178,34,34,0.25)" stroke-width="1.2" class="loading-bar"/>
+                      <circle cx="120" cy="60" r="1" fill="#ef4444"/>
+                      <circle cx="123" cy="61" r="1" fill="#f59e0b"/>
+                      <circle cx="126" cy="62" r="1" fill="#10b981"/>
+                    </g>
+
+
+                    <!-- HUD Overlays -->
+                    </svg>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- TAB 3: IoT Solutions -->
-          <div class="service-panel" id="tab-iot">
-            <div class="service-panel-header-box">
-              <h3 class="service-panel-title">IoT Solutions</h3>
-            <p class="service-panel-desc">Build intelligent ecosystems with end-to-end IoT solutions that connect devices, analyze data in real time, and deliver actionable insights for smarter business outcomes.</p>
-            </div>
-            
-            <div class="service-grid">
-
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-pencil-ruler-2-line"></i></div>
-                  <h4>IoT Designing</h4>
+          <div class="service-panel sp-new" id="tab-iot">
+            <div class="sp-grid-container">
+              <div class="sp-content-col">
+                <div class="sp-header">
+                  <div class="sp-icon-box"><i class="ri-cpu-line"></i></div>
+                  <div class="sp-meta">
+                    <span class="sp-counter">03 / 03</span>
+                    <h3 class="sp-title">IoT Solutions</h3>
+                  </div>
                 </div>
-                <div class="service-card-content">
-                  <p>IoT design is an important aspect of Pro 17 Analytics. It is the process of designing and developing internet-enabled devices for different purposes.</p>
-                </div>
-              </div>
-
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-shield-keyhole-line"></i></div>
-                  <h4>IoT Security</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro 17 Analytics is a leader in IoT security, providing expertise in the areas of data protection, authentication, and secure communication.</p>
+                <p class="sp-desc">Build intelligent ecosystems with end-to-end IoT solutions that connect devices, analyze data in real time, and deliver actionable insights for smarter business outcomes.</p>
+                <div class="sp-divider"></div>
+                <div class="sp-chips">
+                  <span class="sp-chip">IoT Designing</span>
+                  <span class="sp-chip">IoT Security</span>
+                  <span class="sp-chip">IoT Implementation</span>
+                  <span class="sp-chip">Cloud Storage</span>
+                  <span class="sp-chip">Real-time Analytics</span>
                 </div>
               </div>
+              <div class="sp-ill-col">
+                <!-- IoT 3D Isometric Mesh Infrastructure Illustration -->
+                <div class="iot-3d-container" style="cursor: pointer; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                  <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
+                    <defs>
+                      <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#ffffff"/>
+                        <stop offset="100%" stop-color="#f8f9fa"/>
+                      </linearGradient>
+                      <linearGradient id="iotCoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#B22222"/>
+                        <stop offset="100%" stop-color="#ff6b6b"/>
+                      </linearGradient>
+                      <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(178,34,34,0.04)" stroke-width="1"/>
+                      </pattern>
+                      <!-- Glow filter -->
+                      <filter id="coreGlow" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                      </filter>
+                    </defs>
+                    <!-- Base glass card -->
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(178,34,34,0.12)" stroke-width="1.5"/>
+                    <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-cpu-line"></i></div>
-                  <h4>IoT Implementation</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>We is an Internet of Things (IoT) company that specializes in helping businesses utilize the power of connected devices to increase efficiency and improve customer experience.</p>
-                </div>
-              </div>
+                    <!-- Background isometric grid lines -->
+                    <line x1="170" y1="30" x2="300" y2="95" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="170" y1="30" x2="40" y2="95" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="40" y1="95" x2="170" y2="160" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
+                    <line x1="300" y1="95" x2="170" y2="160" stroke="rgba(0,0,0,0.02)" stroke-width="1"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-cloud-line"></i></div>
-                  <h4>Cloud Storage</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>We are a secure & reliable way to store and access files from anywhere. It allows users to collaborate, share & securely store data in the cloud, making it easier to access & manage.</p>
-                </div>
-              </div>
+                    <!-- Expanding wireless waves -->
+                    <ellipse cx="170" cy="120" rx="76" ry="32" stroke="rgba(178,34,34,0.05)" stroke-width="1" class="svg-wave" style="animation-delay: 0s;"/>
+                    <ellipse cx="170" cy="120" rx="46" ry="19" stroke="rgba(178,34,34,0.08)" stroke-width="1.2" class="svg-wave" style="animation-delay: -1.5s;"/>
 
-              <div class="service-card new-style">
-                <div class="service-card-header">
-                  <div class="service-icon"><i class="ri-line-chart-line"></i></div>
-                  <h4>Real-time Analytics</h4>
-                </div>
-                <div class="service-card-content">
-                  <p>Pro 17 Analytics provides real-time analytics that give you an instant view of the performance of your business. It helps to track and analyze data in real-time, so you can make decisions faster and better.</p>
+                    <!-- 3D Connection pipelines -->
+                    <path d="M 170 120 L 105 80" stroke="rgba(178,34,34,0.15)" stroke-width="1.2" class="pipeline"/>
+                    <path d="M 170 120 L 105 80" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="10 90" class="edge-flow-1 pipe-packet"/>
+
+                    <path d="M 170 120 L 235 80" stroke="rgba(178,34,34,0.15)" stroke-width="1.2" class="pipeline"/>
+                    <path d="M 170 120 L 235 80" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="10 90" class="edge-flow-2 pipe-packet"/>
+
+                    <path d="M 170 120 L 100 160" stroke="rgba(178,34,34,0.15)" stroke-width="1.2" class="pipeline"/>
+                    <path d="M 170 120 L 100 160" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="10 90" class="edge-flow-3 pipe-packet"/>
+
+                    <path d="M 170 120 L 240 160" stroke="rgba(178,34,34,0.15)" stroke-width="1.2" class="pipeline"/>
+                    <path d="M 170 120 L 240 160" stroke="#B22222" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="10 90" class="edge-flow-4 pipe-packet"/>
+
+
+                    <!-- Central 3D High-Tech Router/Server Stack (Core Gateway) -->
+                    <g class="svg-pulse core-glow-container" style="animation-duration: 3s; transform-origin: 170px 120px;">
+                      <!-- Bottom server block -->
+                      <polygon points="170,118 184,124 170,130 156,124" fill="#B22222" stroke="#B22222" stroke-width="0.5"/>
+                      <polygon points="156,124 170,130 170,138 156,132" fill="rgba(178,34,34,0.7)" stroke="#B22222" stroke-width="0.5"/>
+                      <polygon points="184,124 170,130 170,138 184,132" fill="rgba(178,34,34,0.85)" stroke="#B22222" stroke-width="0.5"/>
+                      <!-- Top server block -->
+                      <polygon points="170,104 184,110 170,116 156,110" fill="#ffffff" stroke="#B22222" stroke-width="1" style="filter: drop-shadow(0 0 4px rgba(178,34,34,0.2));"/>
+                      <polygon points="156,110 170,116 170,124 156,118" fill="rgba(255,255,255,0.9)" stroke="#B22222" stroke-width="1"/>
+                      <polygon points="184,110 170,116 170,124 184,118" fill="rgba(255,255,255,0.7)" stroke="#B22222" stroke-width="1"/>
+                      <!-- Glowing slot indicators -->
+                      <line x1="160" y1="117" x2="167" y2="120" stroke="#f59e0b" stroke-width="1"/>
+                      <line x1="173" y1="120" x2="180" y2="117" stroke="#22c55e" stroke-width="1"/>
+                    </g>
+
+
+                    <!-- 3D High-Fidelity IoT Devices -->
+                    <!-- 1. Smart House (Top Left) -->
+                    <g class="floating-card smart-home" style="transition: transform 0.4s ease;">
+                      <!-- House body -->
+                      <polygon points="105,74 113,78 105,82 97,78" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="97,78 105,82 105,92 97,88" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="113,78 105,82 105,92 113,88" fill="rgba(0,0,0,0.02)" stroke="#cbd5e1" stroke-width="1"/>
+                      <!-- Door on front face -->
+                      <polygon points="99,84 102,86 102,90 99,88" fill="#B22222"/>
+                      <!-- Roof (Isometric sloped prism) -->
+                      <polygon points="105,65 113,78 105,82 97,78" fill="rgba(178,34,34,0.15)" stroke="#B22222" stroke-width="1.2"/>
+                      <!-- Signal wave from chimney -->
+                      <path d="M 102 61 Q 105 57 108 61" fill="none" stroke="#22c55e" stroke-width="1" class="svg-pulse"/>
+                    </g>
+
+                    <!-- 2. Smart Energy Grid (Top Right) -->
+                    <g class="floating-card energy-grid" style="transition: transform 0.4s ease; animation-delay: -1.5s;">
+                      <!-- Substation base block -->
+                      <polygon points="235,74 243,78 235,82 227,78" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="227,78 235,82 235,92 227,88" fill="rgba(0,0,0,0.02)" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="243,78 235,82 235,92 243,88" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <!-- Danger stripes on grid block -->
+                      <line x1="229" y1="83" x2="233" y2="85" stroke="#B22222" stroke-width="0.8"/>
+                      <line x1="231" y1="85" x2="235" y2="87" stroke="#B22222" stroke-width="0.8"/>
+                      <!-- Lighting tower rod -->
+                      <line x1="235" y1="74" x2="235" y2="64" stroke="#B22222" stroke-width="1.2"/>
+                      <circle cx="235" cy="64" r="1.5" fill="#f59e0b" class="svg-pulse"/>
+                    </g>
+
+                    <!-- 3. Smart Factory Node (Bottom Left) -->
+                    <g class="floating-card factory" style="transition: transform 0.4s ease; animation-delay: -3s;">
+                      <!-- Sawtooth roof structure -->
+                      <polygon points="100,144 108,148 100,152 92,148" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="92,148 100,152 100,162 92,158" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="108,148 100,152 100,162 108,158" fill="rgba(0,0,0,0.02)" stroke="#cbd5e1" stroke-width="1"/>
+                      <!-- Sawtooth roof shapes -->
+                      <polygon points="94,142 98,145 98,148 94,146" fill="rgba(178,34,34,0.12)" stroke="#B22222" stroke-width="0.8"/>
+                      <polygon points="100,142 104,145 104,148 100,146" fill="rgba(178,34,34,0.12)" stroke="#B22222" stroke-width="0.8"/>
+                      <!-- Rotating gear on face -->
+                      <circle cx="100" cy="154" r="3.5" fill="none" stroke="#B22222" stroke-width="1" class="svg-spin" style="transform-origin: 100px 154px; animation-duration: 6s;"/>
+                    </g>
+
+                    <!-- 4. Smart Edge Device / Phone (Bottom Right) -->
+                    <g class="floating-card mobile-dev" style="transition: transform 0.4s ease; animation-delay: -4.5s;">
+                      <!-- Smartphone block -->
+                      <polygon points="240,145 247,149 240,153 233,149" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="233,149 240,153 240,168 233,164" fill="rgba(178,34,34,0.06)" stroke="#cbd5e1" stroke-width="1"/>
+                      <polygon points="247,149 240,153 240,168 247,164" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+                      <!-- Phone interface lines (active dashboard layout) -->
+                      <line x1="242" y1="154" x2="245" y2="156" stroke="#B22222" stroke-width="0.8"/>
+                      <line x1="242" y1="159" x2="245" y2="161" stroke="#cbd5e1" stroke-width="0.8"/>
+                      <!-- Notification indicator blinking -->
+                      <circle cx="240" cy="142" r="1.5" fill="#ef4444" class="svg-pulse"/>
+                    </g>
+                  </svg>
                 </div>
               </div>
             </div>
           </div>
-          
         </div>
+      </div>
+    </div>
+  </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      </section>
-\n<!-- ===================== FOOTER ===================== -->
+<!-- ===================== FOOTER ===================== -->
 <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -365,7 +995,7 @@
           </a>
           <p class="footer-tagline">Transforming Data into Strategic Insights — empowering businesses with AI, cloud, and modern engineering.</p>
           <div class="social-links">
-            <a href="#" class="social-link" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/company/pro17analytics/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </a>
             <a href="#" class="social-link" aria-label="Twitter">
@@ -379,28 +1009,28 @@
         <div class="footer-col">
           <h4>Services</h4>
           <ul>
-            <li><a href="#">Data &amp; Analytics</a></li>
-            <li><a href="#">Cloud Engineering</a></li>
-            <li><a href="#">Digital Engineering</a></li>
-            <li><a href="#">Cyber Security</a></li>
-            <li><a href="#">Training</a></li>
+            <li><a href="services.html#tab-data">Data &amp; Analytics</a></li>
+            <li><a href="services.html#tab-cloud">Cloud Engineering</a></li>
+            <li><a href="services.html#tab-digital">Digital Engineering</a></li>
+            <li><a href="services.html#tab-cyber">Cyber Security</a></li>
+            <li><a href="services.html#tab-consulting">Consulting</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Expertise</h4>
           <ul>
-            <li><a href="#">Data and AI</a></li>
-            <li><a href="#">Modern Apps</a></li>
-            <li><a href="#">IoT Solutions</a></li>
-            <li><a href="#">Consulting</a></li>
-          </ul>
+            <li><a href="expertise.html#tab-data">Data and AI</a></li>
+            <li><a href="expertise.html#tab-modern">Modern Apps</a></li>
+            <li><a href="expertise.html#tab-iot">IoT Solutions</a></li>
+            </ul>
         </div>
         <div class="footer-col">
           <h4>Company</h4>
           <ul>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="cookie-policy.html">Cookie Policy</a></li>
           </ul>
         </div>
       </div>
