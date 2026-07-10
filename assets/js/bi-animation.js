@@ -13,7 +13,7 @@
   const BG        = '#161616';
 
   const C = {
-    blue:    '#3B82F6',
+    blue:    '#911A1C', // Brand Crimson instead of blue
     purple:  '#8B5CF6',
     emerald: '#10B981',
     amber:   '#F59E0B',
@@ -347,9 +347,9 @@
 
       // Hub body
       const hubGrd = ctx.createRadialGradient(hubX - hubR * 0.2, hubY - hubR * 0.2, 0, hubX, hubY, hubR);
-      hubGrd.addColorStop(0, 'rgba(79,142,247,0.35)');
-      hubGrd.addColorStop(0.6, 'rgba(30,40,80,0.9)');
-      hubGrd.addColorStop(1, 'rgba(16,22,44,0.95)');
+      hubGrd.addColorStop(0, 'rgba(145, 26, 28, 0.35)'); // Brand Crimson
+      hubGrd.addColorStop(0.6, 'rgba(60, 10, 12, 0.9)'); // Dark Crimson
+      hubGrd.addColorStop(1, 'rgba(30, 5, 6, 0.95)'); // Very Dark Crimson
       ctx.beginPath();
       ctx.arc(hubX, hubY, hubR, 0, Math.PI * 2);
       ctx.fillStyle = hubGrd;
@@ -367,13 +367,14 @@
 
       // Hub center icon (neural node)
       const pulse = 0.85 + Math.sin(t * 0.006) * 0.15;
-      ctx.fillStyle = C.blue;
+      ctx.fillStyle = C.white; // AI text in white
       ctx.font = `600 ${isMobile ? 11 : 14}px Inter,sans-serif`;
       ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.globalAlpha = alpha * pulse;
       ctx.fillText('AI', hubX, hubY - 4);
       ctx.font = `400 ${isMobile ? 7 : 9}px Inter,sans-serif`;
-      ctx.fillStyle = C.muted;
+      ctx.fillStyle = C.white; // analysis text in white
+      ctx.globalAlpha = alpha; // Fully visible
       ctx.fillText('analysis', hubX, hubY + 9);
 
       ctx.restore();
