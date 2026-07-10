@@ -214,35 +214,6 @@
     });
   }
 
-  /* ── CUSTOM CURSOR ── */
-  const customCursor = document.querySelector('.custom-cursor');
-  
-  if (customCursor && window.matchMedia("(pointer: fine)").matches) {
-    let cursorVisible = false;
-
-    window.addEventListener('mousemove', (e) => {
-      const posX = e.clientX;
-      const posY = e.clientY;
-
-      // Reveal cursor on first move
-      if (!cursorVisible) {
-        cursorVisible = true;
-        customCursor.style.opacity = '1';
-      }
-
-      customCursor.animate({
-        left: `${posX}px`,
-        top: `${posY}px`
-      }, { duration: 200, fill: "forwards" });
-    });
-
-    // Add hover state on interactive elements
-    const hoverables = document.querySelectorAll('a, button, .b-card, input, select, textarea, .tab-btn');
-    hoverables.forEach(el => {
-      el.addEventListener('mouseenter', () => customCursor.classList.add('cursor-hover'));
-      el.addEventListener('mouseleave', () => customCursor.classList.remove('cursor-hover'));
-    });
-  }
 
   /* ── PROCESS STEPS HIGHLIGHT ── */
   const processSteps = document.querySelectorAll('.process-step');

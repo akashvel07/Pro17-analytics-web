@@ -102,7 +102,7 @@
         }
       });
     </script>
-    <div class="cta-laser"></div>
+
     <div class="container" style="position: relative; z-index: 1;">
       <div class="cta-content" data-animate="fade-up" style="text-align: center; display: flex; flex-direction: column; align-items: center;">
         <h1 class="cta-headline" style="font-size: 36px; margin-bottom: 12px;">Services</h1>
@@ -118,7 +118,7 @@
       .svc-hub-section {
         position: relative;
         background: #111111;
-        padding: 100px 20px 110px;
+        padding: 100px 20px 250px;
         overflow: hidden;
       }
       .svc-hub-section::before {
@@ -158,16 +158,16 @@
       .svc-hub-layout {
         position: relative; z-index: 2; display: grid;
         grid-template-columns: 1fr auto 1fr; align-items: center;
-        gap: 0 30px; max-width: 1120px; margin: 0 auto;
+        gap: 0 30px; max-width: 1350px; margin: 0 auto;
       }
       .hub-col { display: flex; flex-direction: column; gap: 20px; }
       .hub-col-right { align-items: flex-start; }
       .hub-col-left  { align-items: flex-end; }
       .hub-pill {
-        position: relative; display: flex; align-items: center; width: 340px; max-width: 100%;
+        position: relative; display: flex; align-items: center; width: 440px; max-width: 100%;
         background: linear-gradient(130deg, #130508 0%, #250b0f 40%, #180d30 100%);
         border: 1px solid rgba(145,26,28,0.2); border-radius: 60px;
-        padding: 18px 22px; gap: 16px; cursor: pointer;
+        padding: 24px 30px; gap: 16px; cursor: pointer;
         transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
         opacity: 0;
         box-shadow: 0 4px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.04);
@@ -205,13 +205,36 @@
         transition: all 0.3s ease;
       }
       .hub-pill:hover .hub-pill-icon { box-shadow: 0 0 30px rgba(145,26,28,0.85), 0 4px 16px rgba(0,0,0,0.4); transform: scale(1.1); }
-      .hub-pill-text { flex: 1; min-width: 0; }
+      .hub-pill-text { flex: none; width: 232px; }
       .hub-pill-title { font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .hub-pill-sub { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
       .hub-pill:hover .hub-pill-sub { color: rgba(255,255,255,0.6); }
-      /* icon on right for left column */
+      .hub-pill-more { font-size: 11px; font-weight: 600; color: #d94547; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s ease; display: inline-flex; align-items: center; gap: 4px; }
+      .hub-pill:hover .hub-pill-more { color: #fff; }
+      /* alignment for left column */
       .hub-col-left .hub-pill { flex-direction: row-reverse; }
-      .hub-col-left .hub-pill-text { text-align: right; }
+      .hub-col-left .hub-pill-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+      }
+      .hub-col-left .hub-pill-title,
+      .hub-col-left .hub-pill-sub { text-align: right; }
+      .hub-col-left .hub-pill:nth-child(2) { margin-right: 40px; }
+      
+      /* alignment for right column */
+      .hub-col-right .hub-pill { flex-direction: row; }
+      .hub-col-right .hub-pill-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+      }
+      .hub-col-right .hub-pill-title,
+      .hub-col-right .hub-pill-sub { text-align: left; }
+      .hub-col-right .hub-pill:nth-child(2) { margin-left: 40px; }
+      
       /* Center */
       .hub-center { display: flex; align-items: center; justify-content: center; position: relative; }
       .hub-core-circle {
@@ -303,27 +326,30 @@
 
       <!-- LEFT COLUMN (icon right, text left, bubble points right) -->
       <div class="hub-col hub-col-left">
-        <div class="hub-pill" data-delay="0">
+        <a href="data-analytics.html" class="hub-pill" data-delay="0" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-bar-chart-box-line"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Data &amp; Analytics</div>
             <div class="hub-pill-sub">Modern platforms, data lakes, BI dashboards and ML pipelines that deliver decisive insight.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
-        <div class="hub-pill" data-delay="140">
+        </a>
+        <a href="cloud-engineering.html" class="hub-pill" data-delay="140" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-cloud-line"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Cloud Engineering</div>
             <div class="hub-pill-sub">Scalable cloud strategies, hybrid architectures, migrations and infrastructure planning.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
-        <div class="hub-pill" data-delay="280">
+        </a>
+        <a href="digital-engineering.html" class="hub-pill" data-delay="280" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-macbook-line"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Digital Engineering</div>
             <div class="hub-pill-sub">Custom apps, mobile solutions and stunning UX/UI crafted for modern experiences.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
+        </a>
       </div>
 
       <!-- CENTER CORE -->
@@ -336,27 +362,30 @@
 
       <!-- RIGHT COLUMN (icon left, text right, bubble points left) -->
       <div class="hub-col hub-col-right">
-        <div class="hub-pill" data-delay="70">
+        <a href="cyber-security.html" class="hub-pill" data-delay="70" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-shield-check-line"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Cyber Security</div>
             <div class="hub-pill-sub">End-to-end protection: app, network and cloud security, GRC compliance and beyond.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
-        <div class="hub-pill" data-delay="210">
+        </a>
+        <a href="consulting-services.html" class="hub-pill" data-delay="210" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-briefcase-line"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Consulting Services</div>
             <div class="hub-pill-sub">Strategic guidance on cloud, AI, data, security and DevOps to accelerate transformation.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
-        <div class="hub-pill" data-delay="350">
+        </a>
+        <a href="intelligent-edges.html" class="hub-pill" data-delay="350" style="text-decoration: none;">
           <div class="hub-pill-icon"><i class="ri-node-tree"></i></div>
           <div class="hub-pill-text">
             <div class="hub-pill-title">Intelligent Edges</div>
             <div class="hub-pill-sub">IoT ecosystems, AI at the edge and intelligent infrastructure for real-time decisions.</div>
+            <div class="hub-pill-more">Learn more <i class="ri-arrow-right-line"></i></div>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
@@ -379,952 +408,6 @@
     })();
     </script>
   </section>
-  <!-- ===================== END SERVICES HUB SECTION ===================== -->
-
-  <!-- ===================== SERVICES TABS SECTION ===================== -->
-  <section class="services-tabs-section section-pad" style="background-color: #ffffff;">
-    <div class="container">
-      <div class="services-layout">
-        
-        <!-- Sidebar Navigation -->
-        <aside class="services-sidebar opt15-sidebar">
-          <button class="service-tab-btn active" data-target="tab-data">
-            <span class="opt15-icon"><i class="ri-bar-chart-box-line"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Data Insights</span>
-              <span class="opt15-subtitle">& Analytics</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-          <button class="service-tab-btn" data-target="tab-cloud">
-            <span class="opt15-icon"><i class="ri-cloud-line"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Cloud</span>
-              <span class="opt15-subtitle">Engineering</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-          <button class="service-tab-btn" data-target="tab-digital">
-            <span class="opt15-icon"><i class="ri-macbook-line"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Digital</span>
-              <span class="opt15-subtitle">Engineering</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-          <button class="service-tab-btn" data-target="tab-intelligent">
-            <span class="opt15-icon"><i class="ri-node-tree"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Intelligent</span>
-              <span class="opt15-subtitle">Edges</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-          <button class="service-tab-btn" data-target="tab-consulting">
-            <span class="opt15-icon"><i class="ri-briefcase-line"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Consulting</span>
-              <span class="opt15-subtitle">Services</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-          <button class="service-tab-btn" data-target="tab-cyber">
-            <span class="opt15-icon"><i class="ri-shield-check-line"></i></span>
-            <span class="opt15-text">
-              <span class="opt15-title">Cyber</span>
-              <span class="opt15-subtitle">Security</span>
-            </span>
-            <span class="opt15-arrow"><i class="ri-arrow-right-line"></i></span>
-          </button>
-        </aside>
-
-        <!-- Content Area -->
-        <div class="services-content-area">
-          <style>
-            /* ── New Panel Layout ── */
-            .sp-new { 
-              padding: 0 0 60px 0 !important; 
-              background: transparent !important; 
-              border-radius: 0 !important; 
-              margin-bottom: 60px !important; 
-              border-bottom: 1px solid #e8e8ee;
-            }
-            .sp-new:last-child {
-              border-bottom: none;
-              margin-bottom: 0 !important;
-              padding-bottom: 0 !important;
-            }
-            .sp-header { display: flex; align-items: flex-start; gap: 18px; margin-bottom: 20px; }
-            .sp-icon-box {
-              flex-shrink: 0; width: 48px; height: 48px; border-radius: 10px;
-              background: #f8f8fa; border: 1px solid #e8e8ee;
-              display: flex; align-items: center; justify-content: center;
-              font-size: 22px; color: #911A1C;
-              box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-            }
-            .sp-meta { display: flex; flex-direction: column; gap: 2px; padding-top: 4px; }
-            .sp-counter {
-              font-size: 12px; font-weight: 700; letter-spacing: 1px;
-              color: #911A1C; font-family: 'Inter', sans-serif;
-            }
-            .sp-title {
-              font-size: clamp(20px, 2.5vw, 26px); font-weight: 800;
-              color: #1a1a1a; line-height: 1.2; margin: 0;
-            }
-            .sp-desc {
-              font-size: 14px; color: #6c7381; line-height: 1.75;
-              margin-bottom: 28px; max-width: 580px;
-            }
-            .sp-divider { height: 1px; background: #e8e8ee; margin-bottom: 24px; }
-            /* Pill chips */
-            .sp-chips { display: flex; flex-wrap: wrap; gap: 10px; }
-            .sp-chip {
-              display: inline-flex; align-items: center; gap: 8px;
-              padding: 9px 16px; border-radius: 50px;
-              border: 1px solid #e2e2e8; background: #fff;
-              font-size: 13px; font-weight: 600; color: #1a1a1a;
-              cursor: default; transition: all 0.25s ease;
-              box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-            }
-            .sp-chip:hover {
-              border-color: rgba(145,26,28,0.4);
-              background: rgba(145,26,28,0.04);
-              color: #911A1C;
-              box-shadow: 0 2px 10px rgba(145,26,28,0.1);
-              transform: translateY(-1px);
-            }
-            .sp-chip-num {
-              font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-              color: #911A1C; opacity: 0.8; font-family: 'Inter', sans-serif;
-              white-space: nowrap;
-            }
-            .sp-grid-container {
-              display: grid;
-              grid-template-columns: 1fr 340px;
-              gap: 40px;
-              align-items: center;
-            }
-            .sp-content-col {
-              flex: 1;
-            }
-            .sp-ill-col {
-              width: 340px;
-              height: 250px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              position: relative;
-            }
-            @media (max-width: 950px) {
-              .sp-grid-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-              }
-              .sp-ill-col {
-                width: 100%;
-                max-width: 380px;
-                height: 220px;
-                margin: 0 auto;
-              }
-            }
-            /* ── SVG Animations ── */
-            .svg-pulse { animation: svgPulse 2.5s ease-in-out infinite; }
-            .svg-spin { animation: svgSpin 25s linear infinite; transform-origin: center; }
-            .svg-spin-reverse { animation: svgSpinRev 20s linear infinite; transform-origin: center; }
-            .svg-dash { stroke-dasharray: 8 4; animation: svgDash 5s linear infinite; }
-            .svg-wave { animation: svgWave 3s ease-out infinite; transform-origin: center; }
-            .svg-float { animation: svgFloat 5s ease-in-out infinite; }
-            .svg-draw { stroke-dasharray: 120; stroke-dashoffset: 120; animation: svgDraw 3s cubic-bezier(0.4,0,0.2,1) forwards; }
-            .svg-scan { animation: svgScan 3.5s linear infinite; }
-            .svg-grid-bg { fill: url(#gridPattern); }
-            
-            @keyframes svgPulse {
-              0%, 100% { opacity: 0.6; }
-              50% { opacity: 1; }
-            }
-            @keyframes svgSpin {
-              from { transform: rotate(0deg); }
-              to { transform: rotate(360deg); }
-            }
-            @keyframes svgSpinRev {
-              from { transform: rotate(360deg); }
-              to { transform: rotate(0deg); }
-            }
-            @keyframes svgDash {
-              to { stroke-dashoffset: -20; }
-            }
-            @keyframes svgWave {
-              0% { transform: scale(0.8); opacity: 0.6; }
-              100% { transform: scale(1.4); opacity: 0; }
-            }
-            @keyframes svgFloat {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-10px); }
-            }
-            @keyframes svgDraw {
-              to { stroke-dashoffset: 0; }
-            }
-            @keyframes svgScan {
-              0% { transform: translateY(-40px); opacity: 0; }
-              10% { opacity: 0.8; }
-              90% { opacity: 0.8; }
-              100% { transform: translateY(110px); opacity: 0; }
-            }
-
-            .animated-curve {
-              stroke-dasharray: 400;
-              stroke-dashoffset: 400;
-              animation: drawCurve 2s ease-out infinite;
-            }
-            @keyframes drawCurve {
-              0% { stroke-dashoffset: 400; }
-              75%, 100% { stroke-dashoffset: 0; }
-            }
-            @keyframes barBounce1 {
-              0%, 5% { transform: scaleY(0.3); opacity: 0.5; }
-              15% { transform: scaleY(1.15); opacity: 1; }
-              20% { transform: scaleY(1); }
-              100% { transform: scaleY(1); opacity: 1; }
-            }
-            @keyframes barBounce2 {
-              0%, 15% { transform: scaleY(0.3); opacity: 0.5; }
-              30% { transform: scaleY(1.15); opacity: 1; }
-              35% { transform: scaleY(1); }
-              100% { transform: scaleY(1); opacity: 1; }
-            }
-            @keyframes barBounce3 {
-              0%, 30% { transform: scaleY(0.3); opacity: 0.5; }
-              45% { transform: scaleY(1.15); opacity: 1; }
-              50% { transform: scaleY(1); }
-              100% { transform: scaleY(1); opacity: 1; }
-            }
-            @keyframes barBounce4 {
-              0%, 45% { transform: scaleY(0.3); opacity: 0.5; }
-              60% { transform: scaleY(1.15); opacity: 1; }
-              65% { transform: scaleY(1); }
-              100% { transform: scaleY(1); opacity: 1; }
-            }
-            @keyframes barBounce5 {
-              0%, 60% { transform: scaleY(0.3); opacity: 0.5; }
-              75% { transform: scaleY(1.15); opacity: 1; }
-              80% { transform: scaleY(1); }
-              100% { transform: scaleY(1); opacity: 1; }
-            }
-            @keyframes dotPulse1 {
-              0%, 10% { transform: scale(0); opacity: 0; }
-              15% { transform: scale(1.4); opacity: 1; }
-              20% { transform: scale(1); }
-              100% { transform: scale(1); opacity: 1; }
-            }
-            @keyframes dotPulse2 {
-              0%, 25% { transform: scale(0); opacity: 0; }
-              30% { transform: scale(1.4); opacity: 1; }
-              35% { transform: scale(1); }
-              100% { transform: scale(1); opacity: 1; }
-            }
-            @keyframes dotPulse3 {
-              0%, 40% { transform: scale(0); opacity: 0; }
-              45% { transform: scale(1.4); opacity: 1; }
-              50% { transform: scale(1); }
-              100% { transform: scale(1); opacity: 1; }
-            }
-            @keyframes dotPulse4 {
-              0%, 55% { transform: scale(0); opacity: 0; }
-              60% { transform: scale(1.4); opacity: 1; }
-              65% { transform: scale(1); }
-              100% { transform: scale(1); opacity: 1; }
-            }
-            @keyframes dotPulse5 {
-              0%, 70% { transform: scale(0); opacity: 0; }
-              75% { transform: scale(1.4); opacity: 1; }
-              80% { transform: scale(1); }
-              100% { transform: scale(1); opacity: 1; }
-            }
-
-
-            /* ── Digital Engineering Widget Animations ── */
-            /* ── Skeleton Loading Wireframe Shimmers ── */
-            /* ── Intelligent Edge Data Pulse Flows ── */
-            /* ── Consulting Roadmap Pulse Flows ── */
-            /* ── Consulting Audit / Advisory Animations ── */
-            /* ── Cyber Shield Threat & Full Scan Animations ── */
-            .svg-scan-full {
-              animation: svgScanFullAnim 3s linear infinite;
-            }
-            @keyframes svgScanFullAnim {
-              0% { transform: translateY(12px); opacity: 0; }
-              10% { opacity: 0.9; }
-              90% { opacity: 0.9; }
-              100% { transform: translateY(228px); opacity: 0; }
-            }
-            .threat-1 {
-              animation: threat1Anim 3s linear infinite;
-            }
-            .threat-2 {
-              animation: threat2Anim 3s linear infinite;
-              animation-delay: 1.5s;
-            }
-            @keyframes threat1Anim {
-              0% { cx: 40px; cy: 80px; opacity: 0.8; }
-              40% { cx: 104px; cy: 104px; opacity: 0.8; }
-              42% { cx: 104px; cy: 104px; opacity: 0; }
-              100% { cx: 104px; cy: 104px; opacity: 0; }
-            }
-            @keyframes threat2Anim {
-              0% { cx: 45px; cy: 160px; opacity: 0.8; }
-              40% { cx: 108px; cy: 140px; opacity: 0.8; }
-              42% { cx: 108px; cy: 140px; opacity: 0; }
-              100% { cx: 108px; cy: 140px; opacity: 0; }
-            }
-
-            .lens-sweep {
-              animation: lensSweepAnim 4s ease-in-out infinite alternate;
-            }
-            @keyframes lensSweepAnim {
-              0% {
-                transform: translate(-6px, -6px);
-              }
-              100% {
-                transform: translate(8px, 8px);
-              }
-            }
-            .check-fade-1 {
-              animation: checkFadeAnim 3s ease-in-out infinite;
-              animation-delay: 0s;
-            }
-            .check-fade-2 {
-              animation: checkFadeAnim 3s ease-in-out infinite;
-              animation-delay: 0.8s;
-            }
-            .check-fade-3 {
-              animation: checkFadeAnim 3s ease-in-out infinite;
-              animation-delay: 1.6s;
-            }
-            @keyframes checkFadeAnim {
-              0%, 10% {
-                opacity: 0.15;
-              }
-              30%, 80% {
-                opacity: 1;
-              }
-              90%, 100% {
-                opacity: 0.15;
-              }
-            }
-
-            .road-pulse {
-              stroke-dashoffset: 175;
-              animation: roadPulseAnim 3.5s linear infinite;
-            }
-            @keyframes roadPulseAnim {
-              to {
-                stroke-dashoffset: -175;
-              }
-            }
-
-            .edge-flow-1 {
-              stroke-dashoffset: 165;
-              animation: edgeFlowAnim 2.5s linear infinite;
-            }
-            .edge-flow-2 {
-              stroke-dashoffset: 165;
-              animation: edgeFlowAnim 2.5s linear infinite;
-              animation-delay: 0.6s;
-            }
-            .edge-flow-3 {
-              stroke-dashoffset: 165;
-              animation: edgeFlowAnim 2.5s linear infinite;
-              animation-delay: 1.2s;
-            }
-            .edge-flow-4 {
-              stroke-dashoffset: 165;
-              animation: edgeFlowAnim 2.5s linear infinite;
-              animation-delay: 1.8s;
-            }
-            @keyframes edgeFlowAnim {
-              to {
-                stroke-dashoffset: 0;
-              }
-            }
-
-            .skeleton-loading {
-              animation: skeletonShimmer 1.8s ease-in-out infinite;
-            }
-            .sk-1 { animation-delay: 0s; }
-            .sk-2 { animation-delay: 0.3s; }
-            .sk-3 { animation-delay: 0.6s; }
-
-            @keyframes skeletonShimmer {
-              0% {
-                fill: rgba(145,26,28,0.02);
-                opacity: 0.4;
-              }
-              50% {
-                fill: rgba(145,26,28,0.12);
-                opacity: 1;
-              }
-              100% {
-                fill: rgba(145,26,28,0.02);
-                opacity: 0.4;
-              }
-            }
-
-            .path-crawl {
-              animation: pathCrawl 3s linear infinite;
-            }
-            @keyframes pathCrawl {
-              to { stroke-dashoffset: -20; }
-            }
-            .loading-bar {
-              stroke-dasharray: 120;
-              stroke-dashoffset: 120;
-              animation: drawLoadingBar 3s ease-in-out infinite;
-            }
-            @keyframes drawLoadingBar {
-              0%, 10% { stroke-dashoffset: 120; }
-              50%, 70% { stroke-dashoffset: 0; }
-              100% { stroke-dashoffset: -120; }
-            }
-            .widget-pulse {
-              animation: widgetPulse 2.5s ease-in-out infinite alternate;
-            }
-            @keyframes widgetPulse {
-              0% { fill: rgba(145,26,28,0.02); }
-              100% { fill: rgba(145,26,28,0.08); }
-            }
-            .widget-fade-1 {
-              animation: widgetFade 2s ease-in-out infinite alternate;
-            }
-            .widget-fade-2 {
-              animation: widgetFade 2s ease-in-out infinite alternate;
-              animation-delay: 0.6s;
-            }
-            @keyframes widgetFade {
-              0% { opacity: 0.2; }
-              100% { opacity: 1; }
-            }
-          </style>
-
-          <!-- TAB 1: Data Insights -->
-          <div class="service-panel sp-new active" id="tab-data">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-bar-chart-box-line"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">01 / 06</span>
-                    <h3 class="sp-title">Data insights &amp; analytics</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">As businesses generate more data every year, the advantage goes to the ones who can turn it into decisions. We build the platforms, pipelines and dashboards that make that possible.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Modern data platforms</span>
-                  <span class="sp-chip">Big data, lakes &amp; warehousing</span>
-                  <span class="sp-chip">BI &amp; advanced analytics</span>
-                  <span class="sp-chip">Data engineering</span>
-                  <span class="sp-chip">Data &amp; analytics estate development</span>
-                  <span class="sp-chip">Platform migration</span>
-                  <span class="sp-chip">Data visualisation</span>
-                  <span class="sp-chip">Data science &amp; machine learning</span>
-                  <span class="sp-chip">Data quality, security &amp; privacy</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Data Insights & Analytics Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <defs>
-                    <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#ffffff"/>
-                      <stop offset="100%" stop-color="#f8f9fa"/>
-                    </linearGradient>
-                    <linearGradient id="lineGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#ff9b9b"/>
-                      <stop offset="50%" stop-color="#911A1C"/>
-                      <stop offset="100%" stop-color="#730e10"/>
-                    </linearGradient>
-                    <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(145,26,28,0.04)" stroke-width="1"/>
-                    </pattern>
-                  </defs>
-                  <!-- Premium outer card -->
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-                  
-                  <!-- Y-Axis Ticks -->
-                  <line x1="45" y1="40" x2="45" y2="190" stroke="#cbd5e1" stroke-width="1.5"/>
-                  <line x1="45" y1="190" x2="305" y2="190" stroke="#cbd5e1" stroke-width="1.5"/>
-                  <line x1="40" y1="70" x2="45" y2="70" stroke="#94a3b8" stroke-width="1.5"/>
-                  <line x1="40" y1="110" x2="45" y2="110" stroke="#94a3b8" stroke-width="1.5"/>
-                  <line x1="40" y1="150" x2="45" y2="150" stroke="#94a3b8" stroke-width="1.5"/>
-
-                  <!-- Floating glowing bar elements with customized bottom origin bounce -->
-                  <rect x="70" y="130" width="22" height="60" rx="4" fill="rgba(145,26,28,0.06)" stroke="rgba(145,26,28,0.3)" stroke-width="1.2" style="animation: barBounce1 2s ease-out infinite; transform-origin: 81px 190px;"/>
-                  <rect x="115" y="90" width="22" height="100" rx="4" fill="rgba(145,26,28,0.06)" stroke="rgba(145,26,28,0.3)" stroke-width="1.2" style="animation: barBounce2 2s ease-out infinite; transform-origin: 126px 190px;"/>
-                  <rect x="160" y="110" width="22" height="80" rx="4" fill="rgba(145,26,28,0.06)" stroke="rgba(145,26,28,0.3)" stroke-width="1.2" style="animation: barBounce3 2s ease-out infinite; transform-origin: 171px 190px;"/>
-                  <rect x="205" y="60" width="22" height="130" rx="4" fill="rgba(145,26,28,0.12)" stroke="rgba(145,26,28,0.5)" stroke-width="1.2" style="animation: barBounce4 2s ease-out infinite; transform-origin: 216px 190px;"/>
-                  <rect x="250" y="80" width="22" height="110" rx="4" fill="rgba(145,26,28,0.06)" stroke="rgba(145,26,28,0.3)" stroke-width="1.2" style="animation: barBounce5 2s ease-out infinite; transform-origin: 261px 190px;"/>
-
-                  <!-- Dynamic graph curve that draws from left-to-right -->
-                  <path d="M 50 180 C 60 160, 70 145, 81 140 C 95 135, 110 102, 126 98 C 142 94, 155 120, 171 115 C 187 110, 201 82, 216 78 C 231 74, 246 84, 261 88 C 276 92, 286 110, 300 130" fill="none" stroke="url(#lineGrad1)" stroke-width="3.5" style="stroke-dasharray: 400; stroke-dashoffset: 400; animation: drawCurve 2s ease-out infinite;"/>
-                  
-                  <!-- Pulsing node indicators synchronized with line hit -->
-                  <circle cx="81" cy="140" r="5" fill="#911A1C" stroke="#fff" stroke-width="2" style="animation: dotPulse1 2s ease-out infinite; transform-origin: 81px 140px;"/>
-                  <circle cx="126" cy="98" r="5" fill="#911A1C" stroke="#fff" stroke-width="2" style="animation: dotPulse2 2s ease-out infinite; transform-origin: 126px 98px;"/>
-                  <circle cx="171" cy="115" r="5" fill="#911A1C" stroke="#fff" stroke-width="2" style="animation: dotPulse3 2s ease-out infinite; transform-origin: 171px 115px;"/>
-                  <circle cx="216" cy="78" r="5" fill="#911A1C" stroke="#fff" stroke-width="2" style="animation: dotPulse4 2s ease-out infinite; transform-origin: 216px 78px;"/>
-                  <circle cx="261" cy="88" r="5" fill="#911A1C" stroke="#fff" stroke-width="2" style="animation: dotPulse5 2s ease-out infinite; transform-origin: 261px 88px;"/>
-
-                  <!-- HUD Label -->
-                  </svg>
-              </div>
-            </div>
-          </div>
-          <!-- TAB 2: Cloud Engineering -->
-          <div class="service-panel sp-new" id="tab-cloud">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-cloud-line"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">02 / 06</span>
-                    <h3 class="sp-title">Cloud engineering</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">We design and build cloud foundations that scale with your ambitions — from migration strategies to fully managed hybrid architectures on AWS, Azure and GCP.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Enabling cloud technology</span>
-                  <span class="sp-chip">Migration &amp; integration</span>
-                  <span class="sp-chip">Cloud strategy development</span>
-                  <span class="sp-chip">Resource &amp; infrastructure planning</span>
-                  <span class="sp-chip">Data warehouse</span>
-                  <span class="sp-chip">Data lake / data fabric</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Cloud Engineering Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-
-                  <!-- Connected nodes network -->
-                  <path d="M 90 140 L 170 85 L 250 140 M 170 85 L 170 170 M 90 140 L 170 170 L 250 140" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" class="svg-dash"/>
-
-                  <!-- Central Cloud Core -->
-                  <g class="svg-float" style="animation-duration: 4.5s;">
-                    <!-- Cloud bubble layers -->
-                    <path d="M170,55 C158,55 149,63 149,74 C140,74 133,81 133,91 C133,101 141,108 152,108 L188,108 C197,108 205,101 205,92 C205,83 198,77 189,77 C189,63 181,55 170,55 Z" fill="rgba(145,26,28,0.06)" stroke="#911A1C" stroke-width="2" stroke-linejoin="round" class="svg-pulse"/>
-                    <circle cx="170" cy="85" r="4.5" fill="#911A1C" class="svg-pulse"/>
-                  </g>
-
-                  <!-- Stack Server 1 (Left) -->
-                  <g transform="translate(60, 115)">
-                    <rect x="0" y="0" width="60" height="34" rx="4" fill="#ffffff" stroke="rgba(145,26,28,0.2)" stroke-width="1.2" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));"/>
-                    <line x1="8" y1="9" x2="16" y2="9" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" class="svg-pulse"/>
-                    <line x1="22" y1="9" x2="50" y2="9" stroke="#e2e2e8" stroke-width="1.5"/>
-                    <line x1="8" y1="17" x2="16" y2="17" stroke="#911A1C" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="22" y1="17" x2="50" y2="17" stroke="#e2e2e8" stroke-width="1.5"/>
-                    <line x1="8" y1="25" x2="16" y2="25" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" class="svg-pulse"/>
-                    <line x1="22" y1="25" x2="50" y2="25" stroke="#e2e2e8" stroke-width="1.5"/>
-                  </g>
-
-                  <!-- Stack Server 2 (Right) -->
-                  <g transform="translate(220, 115)">
-                    <rect x="0" y="0" width="60" height="34" rx="4" fill="#ffffff" stroke="rgba(145,26,28,0.2)" stroke-width="1.2" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));"/>
-                    <line x1="8" y1="9" x2="16" y2="9" stroke="#eab308" stroke-width="2.5" stroke-linecap="round" class="svg-pulse"/>
-                    <line x1="22" y1="9" x2="50" y2="9" stroke="#e2e2e8" stroke-width="1.5"/>
-                    <line x1="8" y1="17" x2="16" y2="17" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="22" y1="17" x2="50" y2="17" stroke="#e2e2e8" stroke-width="1.5"/>
-                    <line x1="8" y1="25" x2="16" y2="25" stroke="#911A1C" stroke-width="2.5" stroke-linecap="round" class="svg-pulse"/>
-                    <line x1="22" y1="25" x2="50" y2="25" stroke="#e2e2e8" stroke-width="1.5"/>
-                  </g>
-
-                  <!-- Database Center Node (Bottom) -->
-                  <g transform="translate(145, 155)">
-                    <rect x="0" y="0" width="50" height="32" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));"/>
-                    <!-- Server disc indicators -->
-                    <ellipse cx="25" cy="8" rx="16" ry="3" fill="none" stroke="rgba(145,26,28,0.3)" stroke-width="1"/>
-                    <ellipse cx="25" cy="16" rx="16" ry="3" fill="none" stroke="rgba(145,26,28,0.3)" stroke-width="1"/>
-                    <ellipse cx="25" cy="24" rx="16" ry="3" fill="none" stroke="#d94547" stroke-width="1" class="svg-pulse"/>
-                  </g>
-
-                  </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 3: Digital Engineering -->
-          <div class="service-panel sp-new" id="tab-digital">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-macbook-line"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">03 / 06</span>
-                    <h3 class="sp-title">Digital engineering</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">From concept to deployment, we craft digital products and experiences that delight users and drive results — across web, mobile and enterprise platforms.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Application development</span>
-                  <span class="sp-chip">Mobile application</span>
-                  <span class="sp-chip">UX / UI design</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Digital Engineering Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-
-                  <!-- Desktop UI wireframe window -->
-                  <g class="svg-float" style="animation-duration: 5.5s;">
-                    <rect x="50" y="50" width="160" height="120" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.06));"/>
-                    <line x1="50" y1="70" x2="210" y2="70" stroke="#cbd5e1" stroke-width="1.2"/>
-                    <circle cx="60" cy="60" r="2.5" fill="#ef4444" class="svg-pulse"/>
-                    <circle cx="68" cy="60" r="2.5" fill="#f59e0b" class="svg-pulse" style="animation-delay: 0.5s;"/>
-                    <circle cx="76" cy="60" r="2.5" fill="#10b981" class="svg-pulse" style="animation-delay: 1s;"/>
-                    
-                    <!-- Dashboard widgets inside browser -->
-                    <rect x="62" y="82" width="64" height="40" rx="4" stroke="rgba(145,26,28,0.25)" stroke-width="1" class="skeleton-loading sk-1"/>
-                    <rect x="134" y="82" width="64" height="40" rx="4" stroke="#e2e8f0" stroke-width="1" class="skeleton-loading sk-2"/>
-                    <line x1="142" y1="92" x2="190" y2="92" stroke="#94a3b8" stroke-width="1.5" class="widget-fade-1"/>
-                    <line x1="142" y1="102" x2="175" y2="102" stroke="#e2e8f0" stroke-width="1.5" class="widget-fade-2"/>
-
-                    <rect x="62" y="132" width="136" height="28" rx="4" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-                    <line x1="72" y1="146" x2="188" y2="146" stroke="#911A1C" stroke-width="2" class="loading-bar"/>
-                  </g>
-
-                  <!-- Foreground Phone Wireframe overlapping -->
-                  <g class="svg-float" style="animation-duration: 4.5s; animation-delay: -2s;">
-                    <rect x="220" y="70" width="70" height="120" rx="10" fill="#ffffff" stroke="rgba(145,26,28,0.3)" stroke-width="1.8" style="filter: drop-shadow(0 4px 12px rgba(145,26,28,0.1));"/>
-                    <circle cx="255" cy="78" r="2" fill="#cbd5e1"/>
-                    
-                    <!-- Loading skeleton components in mobile -->
-                    <rect x="228" y="90" width="54" height="18" rx="3" stroke="rgba(145,26,28,0.15)" stroke-width="0.8" class="skeleton-loading sk-1"/>
-                    <rect x="228" y="115" width="24" height="24" rx="3" stroke="#e2e8f0" stroke-width="0.8" class="skeleton-loading sk-2"/>
-                    <rect x="258" y="115" width="24" height="24" rx="3" stroke="#e2e8f0" stroke-width="0.8" class="skeleton-loading sk-3"/>
-                    
-                    <circle cx="255" cy="178" r="5" stroke="#cbd5e1" stroke-width="1" class="svg-pulse"/>
-                  </g>
-
-                  <!-- Dynamic Designer Vector path -->
-                  <path d="M 35 150 C 40 90, 180 30, 245 45" fill="none" stroke="#ff8b8b" stroke-width="1.2" stroke-dasharray="6 4" class="path-crawl"/>
-                  <circle cx="245" cy="45" r="3.5" fill="#911A1C" class="svg-pulse"/>
-
-                  </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 4: Intelligent Edges -->
-          <div class="service-panel sp-new" id="tab-intelligent">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-node-tree"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">04 / 06</span>
-                    <h3 class="sp-title">Intelligent edges</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">We bring intelligence to the edge of your network — enabling real-time decisions through IoT ecosystems and AI-powered infrastructure that never sleeps.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Internet of Things</span>
-                  <span class="sp-chip">AI and machine learning</span>
-                  <span class="sp-chip">Developing the edges</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Intelligent Edges Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <defs>
-                    <!-- Core Glow filter -->
-                    <filter id="coreGlow" x="-20%" y="-20%" width="140%" height="140%">
-                      <feGaussianBlur stdDeviation="4" result="blur" />
-                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                    </filter>
-                    <linearGradient id="neuralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#911A1C"/>
-                      <stop offset="100%" stop-color="#d94547"/>
-                    </linearGradient>
-                  </defs>
-                  <!-- Base premium panel card -->
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-
-                  <!-- Dynamic Outer Network Boundary -->
-                  <circle cx="170" cy="120" r="82" stroke="rgba(145,26,28,0.06)" stroke-width="1" stroke-dasharray="6 8" class="svg-spin-reverse"/>
-                  <circle cx="170" cy="120" r="66" stroke="rgba(145,26,28,0.1)" stroke-width="1" class="svg-wave"/>
-
-                  <!-- Animated connection lines (data streams) -->
-                  <!-- Path to Top Left (Gateway) -->
-                  <path d="M 170 120 L 100 75" stroke="rgba(145,26,28,0.15)" stroke-width="1.5" stroke-dasharray="6 6"/>
-                  <path d="M 170 120 L 100 75" stroke="#911A1C" stroke-width="2" stroke-linecap="round" stroke-dasharray="15 150" class="edge-flow-1"/>
-
-                  <!-- Path to Top Right (Mobile Device) -->
-                  <path d="M 170 120 L 240 75" stroke="rgba(145,26,28,0.15)" stroke-width="1.5" stroke-dasharray="6 6"/>
-                  <path d="M 170 120 L 240 75" stroke="#911A1C" stroke-width="2" stroke-linecap="round" stroke-dasharray="15 150" class="edge-flow-2"/>
-
-                  <!-- Path to Bottom Left (Sensor Node) -->
-                  <path d="M 170 120 L 105 165" stroke="rgba(145,26,28,0.15)" stroke-width="1.5" stroke-dasharray="6 6"/>
-                  <path d="M 170 120 L 105 165" stroke="#911A1C" stroke-width="2" stroke-linecap="round" stroke-dasharray="15 150" class="edge-flow-3"/>
-
-                  <!-- Path to Bottom Right (Camera/Vision Node) -->
-                  <path d="M 170 120 L 235 165" stroke="rgba(145,26,28,0.15)" stroke-width="1.5" stroke-dasharray="6 6"/>
-                  <path d="M 170 120 L 235 165" stroke="#911A1C" stroke-width="2" stroke-linecap="round" stroke-dasharray="15 150" class="edge-flow-4"/>
-
-
-                  <!-- Central Neural AI Core -->
-                  <g transform="translate(150, 100)" class="svg-pulse" style="animation-duration: 3s;">
-                    <!-- Outer glowing neural hexagon -->
-                    <polygon points="20,0 38,10 38,30 20,40 2,30 2,10" fill="rgba(145,26,28,0.06)" stroke="url(#neuralGrad)" stroke-width="2" filter="url(#coreGlow)"/>
-                    <!-- Inner processor connections -->
-                    <circle cx="20" cy="20" r="6" fill="#911A1C"/>
-                    <line x1="20" y1="20" x2="20" y2="5" stroke="#911A1C" stroke-width="1"/>
-                    <line x1="20" y1="20" x2="7" y2="28" stroke="#911A1C" stroke-width="1"/>
-                    <line x1="20" y1="20" x2="33" y2="28" stroke="#911A1C" stroke-width="1"/>
-                    <circle cx="20" cy="5" r="2.5" fill="#ffffff" stroke="#911A1C" stroke-width="1.2"/>
-                    <circle cx="7" cy="28" r="2.5" fill="#ffffff" stroke="#911A1C" stroke-width="1.2"/>
-                    <circle cx="33" cy="28" r="2.5" fill="#ffffff" stroke="#911A1C" stroke-width="1.2"/>
-                  </g>
-
-
-                  <!-- Edge Devices (Nodes) -->
-                  <!-- Top Left: Cloud Server / Gateway (Center: 100, 75) -->
-                  <circle cx="100" cy="75" r="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));"/>
-                  <rect x="92" y="69" width="16" height="4" rx="1" fill="none" stroke="#911A1C" stroke-width="1"/>
-                  <rect x="92" y="76" width="16" height="4" rx="1" fill="none" stroke="#911A1C" stroke-width="1"/>
-                  <circle cx="95" cy="71" r="0.7" fill="#22c55e" class="svg-pulse"/>
-                  <circle cx="95" cy="78" r="0.7" fill="#22c55e" class="svg-pulse"/>
-
-                  <!-- Top Right: Smart Mobile User Node (Center: 240, 75) -->
-                  <circle cx="240" cy="75" r="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));"/>
-                  <rect x="234" y="67" width="12" height="16" rx="2" fill="none" stroke="#911A1C" stroke-width="1"/>
-                  <circle cx="240" cy="69" r="0.8" fill="#911A1C"/>
-                  <line x1="237" y1="80" x2="243" y2="80" stroke="#911A1C" stroke-width="0.8"/>
-
-                  <!-- Bottom Left: Industrial IoT Sensor (Center: 105, 165) -->
-                  <circle cx="105" cy="165" r="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));"/>
-                  <g class="svg-spin" style="transform-origin: 105px 165px; animation-duration: 8s;">
-                    <!-- Spinning Gear Details -->
-                    <circle cx="105" cy="165" r="6" fill="none" stroke="#911A1C" stroke-width="1.5"/>
-                    <line x1="105" y1="156" x2="105" y2="174" stroke="#911A1C" stroke-width="1.5"/>
-                    <line x1="96" y1="165" x2="114" y2="165" stroke="#911A1C" stroke-width="1.5"/>
-                    <line x1="99" y1="159" x2="111" y2="171" stroke="#911A1C" stroke-width="1.2"/>
-                    <line x1="99" y1="171" x2="111" y2="159" stroke="#911A1C" stroke-width="1.2"/>
-                  </g>
-                  <circle cx="105" cy="165" r="2.5" fill="#ffffff" stroke="#911A1C" stroke-width="1.2"/>
-
-                  <!-- Bottom Right: Camera / Vision AI Node (Center: 235, 165) -->
-                  <circle cx="235" cy="165" r="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.04));"/>
-                  <path d="M 227 165 Q 235 157 243 165 Q 235 173 227 165 Z" fill="none" stroke="#911A1C" stroke-width="1.2"/>
-                  <circle cx="235" cy="165" r="4" fill="#911A1C" class="svg-pulse" style="transform-origin: 235px 165px;"/>
-                  <circle cx="235" cy="165" r="1" fill="#ffffff"/>
-
-                  <!-- HUD Info overlays -->
-                  </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 5: Consulting Services -->
-          <div class="service-panel sp-new" id="tab-consulting">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-briefcase-line"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">05 / 06</span>
-                    <h3 class="sp-title">Consulting services</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">Our consultants embed with your teams to deliver strategic clarity across cloud, AI, data, security and DevOps — turning complex challenges into clear roadmaps.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Cloud &amp; infrastructure consulting</span>
-                  <span class="sp-chip">AI and data consulting</span>
-                  <span class="sp-chip">Security consultancy</span>
-                  <span class="sp-chip">Consulting for BC/DR</span>
-                  <span class="sp-chip">Application consulting</span>
-                  <span class="sp-chip">DevOps consulting</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Consulting Services Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <defs>
-                    <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#ffffff"/>
-                      <stop offset="100%" stop-color="#f8f9fa"/>
-                    </linearGradient>
-                    <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(145,26,28,0.04)" stroke-width="1"/>
-                    </pattern>
-                  </defs>
-                  <!-- Base premium panel card -->
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-
-                  <!-- Strategy Report Document (Advisory & Auditing) -->
-                  <g class="svg-float" style="animation-duration: 6s;">
-                    <rect x="55" y="55" width="145" height="135" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2" style="filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));"/>
-                    <!-- Document header line -->
-                    <rect x="70" y="70" width="70" height="6" rx="2" fill="#911A1C" opacity="0.8"/>
-                    <rect x="70" y="82" width="40" height="4" rx="2" fill="#cbd5e1"/>
-                    
-                    <!-- growth grid inside report -->
-                    <line x1="70" y1="145" x2="175" y2="145" stroke="#e2e8f0" stroke-width="1.2"/>
-                    <line x1="70" y1="100" x2="70" y2="145" stroke="#e2e8f0" stroke-width="1.2"/>
-                    <!-- Winding growth/strategy graph -->
-                    <path d="M 70 135 L 95 125 L 120 135 L 145 110 L 175 118" fill="none" stroke="#d94547" stroke-width="2.5" stroke-linecap="round" class="loading-bar"/>
-                    <circle cx="175" cy="118" r="3" fill="#911A1C" class="svg-pulse"/>
-                  </g>
-
-                  <!-- Strategy Solutions Audit Checklist (Right side) -->
-                  <g class="svg-float" style="animation-duration: 5s; animation-delay: -1.5s;">
-                    <rect x="215" y="55" width="75" height="85" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 3px 8px rgba(0,0,0,0.04));"/>
-                    <!-- Check 1 -->
-                    <path d="M 225 75 L 229 79 L 237 71" stroke="#22c55e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" class="check-fade-1"/>
-                    <line x1="243" y1="75" x2="275" y2="75" stroke="#e2e8f0" stroke-width="2" class="check-fade-1"/>
-                    <!-- Check 2 -->
-                    <path d="M 225 97 L 229 101 L 237 93" stroke="#22c55e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" class="check-fade-2"/>
-                    <line x1="243" y1="97" x2="275" y2="97" stroke="#e2e8f0" stroke-width="2" class="check-fade-2"/>
-                    <!-- Check 3 -->
-                    <path d="M 225 119 L 229 123 L 237 115" stroke="#22c55e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round" class="check-fade-3"/>
-                    <line x1="243" y1="119" x2="275" y2="119" stroke="#e2e8f0" stroke-width="2" class="check-fade-3"/>
-                  </g>
-
-                  <!-- Floating Goal / Target Icon representing focus -->
-                  <circle cx="250" cy="180" r="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" style="filter: drop-shadow(0 2px 5px rgba(0,0,0,0.04));"/>
-                  <circle cx="250" cy="180" r="10" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="3 2" class="svg-spin"/>
-                  <circle cx="250" cy="180" r="3" fill="#f59e0b" class="svg-pulse"/>
-
-
-                  <!-- Auditing Magnifying Glass (Active Lens scanning the strategy report) -->
-                  <g class="lens-sweep">
-                    <!-- Glass handle -->
-                    <line x1="173" y1="148" x2="200" y2="175" stroke="#475569" stroke-width="6" stroke-linecap="round"/>
-                    <line x1="173" y1="148" x2="200" y2="175" stroke="#911A1C" stroke-width="2" stroke-linecap="round"/>
-                    <!-- Lens Ring -->
-                    <circle cx="160" cy="135" r="20" fill="rgba(145,26,28,0.05)" stroke="#911A1C" stroke-width="2.5" style="filter: drop-shadow(0 2px 6px rgba(145,26,28,0.15));"/>
-                    <!-- Lens shine -->
-                    <path d="M 148 130 A 15 15 0 0 1 160 118" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-                  </g>
-
-
-                  <!-- HUD Info overlays -->
-                  </svg>
-              </div>
-            </div>
-          </div>
-
-          <!-- TAB 6: Cyber Security -->
-          <div class="service-panel sp-new" id="tab-cyber">
-            <div class="sp-grid-container">
-              <div class="sp-content-col">
-                <div class="sp-header">
-                  <div class="sp-icon-box"><i class="ri-shield-check-line"></i></div>
-                  <div class="sp-meta">
-                    <span class="sp-counter">06 / 06</span>
-                    <h3 class="sp-title">Cyber security</h3>
-                  </div>
-                </div>
-                <p class="sp-desc">We protect what you've built — with end-to-end security coverage from application layer to governance frameworks, ensuring resilience across every threat vector.</p>
-                <div class="sp-divider"></div>
-                <div class="sp-chips">
-                  <span class="sp-chip">Application security</span>
-                  <span class="sp-chip">Network security</span>
-                  <span class="sp-chip">Cloud security</span>
-                  <span class="sp-chip">Governance, risk &amp; compliance (GRC)</span>
-                </div>
-              </div>
-              <div class="sp-ill-col">
-                <!-- Cyber Security Illustration -->
-                <svg width="340" height="240" viewBox="0 0 340 240" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg-float">
-                  <defs>
-                    <linearGradient id="panelGradLight" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#ffffff"/>
-                      <stop offset="100%" stop-color="#f8f9fa"/>
-                    </linearGradient>
-                    <pattern id="gridPatternLight" width="20" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(145,26,28,0.04)" stroke-width="1"/>
-                    </pattern>
-                  </defs>
-                  <!-- Premium card panel base -->
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#panelGradLight)" stroke="rgba(145,26,28,0.12)" stroke-width="1.5"/>
-                  <rect x="5" y="5" width="330" height="230" rx="16" fill="url(#gridPatternLight)"/>
-
-                  <!-- Outer firewall shield boundaries -->
-                  <circle cx="170" cy="120" r="76" stroke="rgba(145,26,28,0.05)" stroke-width="1"/>
-                  <!-- Rotating shield segment ring -->
-                  <circle cx="170" cy="120" r="66" stroke="#911A1C" stroke-width="1.5" stroke-dasharray="24 100 12 80" class="svg-spin" style="animation-duration: 15s;"/>
-                  <circle cx="170" cy="120" r="46" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-
-                  <!-- Threat Packet 1 (flying from left and dissolving at shield boundary) -->
-                  <circle cx="0" cy="0" r="3" fill="#ef4444" class="threat-1"/>
-                  <!-- Threat Packet 2 -->
-                  <circle cx="0" cy="0" r="3" fill="#ef4444" class="threat-2"/>
-
-
-                  <!-- Detailed shield lock matrix (Central node) -->
-                  <!-- Pulsing Tech Hexagon Backing -->
-                  <polygon points="170,82 203,101 203,139 170,158 137,139 137,101" fill="rgba(145,26,28,0.03)" stroke="rgba(145,26,28,0.12)" stroke-width="1" class="svg-pulse"/>
-                  
-                  <!-- Reverse rotating dial ring around shield -->
-                  <circle cx="170" cy="120" r="35" stroke="rgba(145,26,28,0.25)" stroke-width="1.5" stroke-dasharray="6 22" class="svg-spin-reverse" style="animation-duration: 8s;"/>
-
-                  <!-- High-Tech Shield and Padlock -->
-                  <g class="svg-float" style="animation-duration: 4.5s;">
-                    <!-- Shield outline -->
-                    <path d="M 170 90 L 195 95 C 195 125 180 145 170 152 C 160 145 145 125 145 95 Z" fill="#ffffff" stroke="#911A1C" stroke-width="2" style="filter: drop-shadow(0 3px 8px rgba(145,26,28,0.15));"/>
-                    <!-- Inner Shield red segment fill -->
-                    <path d="M 170 94 L 191 98.2 C 191 122 178.5 138.5 170 144.5 C 161.5 138.5 149 122 149 98.2 Z" fill="rgba(145,26,28,0.05)"/>
-                    
-                    <!-- Padlock inside Shield -->
-                    <!-- Loop/Shackle -->
-                    <path d="M 164 116 V 110 A 6 6 0 0 1 176 110 V 116" fill="none" stroke="#911A1C" stroke-width="1.8" stroke-linecap="round"/>
-                    <!-- Lock body -->
-                    <rect x="159" y="116" width="22" height="15" rx="2.5" fill="#911A1C" stroke="#911A1C" stroke-width="1"/>
-                    <!-- Keyhole -->
-                    <circle cx="170" cy="122" r="1.5" fill="#ffffff"/>
-                    <line x1="170" y1="123.5" x2="170" y2="128" stroke="#ffffff" stroke-width="1" stroke-linecap="round"/>
-                  </g>
-
-                  <!-- Digital security crosshair paths -->
-                  <path d="M 120 70 L 220 70 M 120 170 L 220 170" stroke="#cbd5e1" stroke-width="0.8"/>
-                  <path d="M 120 70 L 120 170 M 220 70 L 220 170" stroke="#cbd5e1" stroke-width="0.8"/>
-
-                  <!-- Background binary scanning elements -->
-                  <text x="65" y="85" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">10110</text>
-                  <text x="65" y="105" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">01001</text>
-                  <text x="65" y="125" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">11010</text>
-                  <text x="65" y="145" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">00110</text>
-                  
-                  <text x="235" y="105" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">SEC_E</text>
-                  <text x="235" y="125" fill="rgba(145,26,28,0.12)" font-size="8" font-family="Courier New">SYS_A</text>
-
-                  <!-- Laser scanner line sweeping vertically (Fully covering height of 240) -->
-                  <line x1="10" y1="0" x2="330" y2="0" stroke="rgba(145,26,28,0.6)" stroke-width="2" class="svg-scan-full" style="filter: drop-shadow(0 0 4px #911A1C);"/>
-
-                  </svg>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
     <div class="container">
@@ -1383,7 +466,7 @@
   </footer>
 
   <!-- Custom Cursor -->
-  <div class="custom-cursor"></div>
+
 
   <script src="script.js"></script>
 
