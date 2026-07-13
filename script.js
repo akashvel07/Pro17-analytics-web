@@ -418,4 +418,57 @@ document.addEventListener('DOMContentLoaded', () => {
       successPopup.style.display = 'none';
     });
   }
+
+  /* ── SECTION NAV SCROLLSPY & SMART ANIMATE ── */
+  const sectionNavLinks = document.querySelectorAll('.section-nav-item');
+  const sectionNavList = document.querySelector('.section-nav-list');
+  
+  if (sectionNavLinks.length > 0 && sectionNavList) {
+    // Create the sliding indicator
+    const indicator = document.createElement('div');
+    indicator.className = 'nav-indicator';
+    sectionNavList.appendChild(indicator);
+
+    function updateIndicator(activeLink) {
+      if (!activeLink) return;
+      indicator.style.width = activeLink.offsetWidth + 'px';
+      indicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
+    }
+
+    // Set initial indicator position
+    const initialActive = document.querySelector('.section-nav-item.active') || sectionNavLinks[0];
+    if (initialActive) {
+      setTimeout(() => updateIndicator(initialActive), 100);
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = '#' + entry.target.id;
+          sectionNavLinks.forEach(link => {
+            if (link.getAttribute('href') === id) {
+              link.classList.add('active');
+              updateIndicator(link);
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    
+    sectionNavLinks.forEach(link => {
+      const targetId = link.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const section = document.querySelector(targetId);
+        if (section) sectionObserver.observe(section);
+      }
+    });
+
+    // Update indicator on window resize
+    window.addEventListener('resize', () => {
+      const activeLink = document.querySelector('.section-nav-item.active');
+      if (activeLink) updateIndicator(activeLink);
+    });
+  }
 });
