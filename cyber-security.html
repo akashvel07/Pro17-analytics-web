@@ -15,8 +15,10 @@
 </head>
 <body>
 
+  <!-- ===================== HERO & NAV WRAPPER ===================== -->
+  <div class="hero-nav-wrapper">
   <!-- ===================== TOP NAVIGATION ===================== -->
-  <header class="who-we-are-header">
+  <header class="who-we-are-header sticky-header">
     <!-- Nav -->
     <nav class="hb-nav" id="hbNav">
       <a href="index.html" class="hb-logo-link">
@@ -106,10 +108,11 @@
     <div class="container auto-style-2">
       <div class="cta-content auto-style-3" data-animate="fade-up">
         <h1 class="cta-headline auto-style-4">Cyber Security</h1>
-        <p class="cta-sub auto-style-5">Home / Cyber Security</p>
+        <p class="cta-sub auto-style-5"><a href="index.html" class="breadcrumb-link">Home</a> \ <a href="services.html" class="breadcrumb-link">Services</a> \ Cyber Security</p>
       </div>
     </div>
   </section>
+  </div>
 
   <!-- ===================== INTRO SECTION ===================== -->
   <section class="da-intro auto-style-31">
@@ -123,31 +126,44 @@
     </div>
   </section>
 
-  <!-- ===================== MODERN DATA PLATFORMS ===================== -->
-  <section class="modern-data-platforms section-pad auto-style-46">
+  <!-- ===================== SECTION NAV WRAPPER ===================== -->
+  <div class="sticky-nav-wrapper">
+  <!-- ===================== SECTION NAV ===================== -->
+  <nav class="section-nav">
+    <div class="container">
+      <ul class="section-nav-list">
+        <li><a href="#data-security-governance" class="section-nav-item active">Data Security, Privacy &amp; Governance</a></li>
+        <li><a href="#application-security" class="section-nav-item">Application Security</a></li>
+        <li><a href="#cloud-infrastructure-security" class="section-nav-item">Cloud &amp; Infrastructure Security</a></li>
+        <li><a href="#network-security" class="section-nav-item">Network Security</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===================== 1. MODERN DATA PLATFORMS ===================== -->
+  <section id="data-security-governance" class="modern-data-platforms section-pad auto-style-46">
     <div class="container">
       <div class="auto-style-37">
         
         <!-- LEFT COLUMN: 3D ILLUSTRATION -->
         <div class="auto-style-38">
-          <img class="auto-style-39" src="assets/images/app-security-transparent.png" alt="Application Security 3D Illustration">
+          <img class="auto-style-39" src="assets/images/services/cyber-security/1.png" alt="Modern Data Platforms 3D Illustration">
         </div>
 
         <!-- RIGHT COLUMN: CONTENT -->
         <div class="auto-style-40">
-          <span class="eyebrow auto-style-41">APPLICATION SECURITY</span>
+          <span class="eyebrow auto-style-41">DATA SECURITY, PRIVACY &amp; GOVERNANCE</span>
           <h2 class="auto-style-42">
-            We are data analytic solution provider that helps organizations to develop their data and analytics estate.
+            Protect your data with security, privacy, and compliance built in.
           </h2>
           <p class="auto-style-43">
-            At Pro17Analytics, Application Security involves implementing robust measures to protect applications from threats and vulnerabilities throughout their lifecycle, ensuring the integrity, confidentiality, and availability of data.
+            Secure sensitive data, enforce governance policies, and maintain compliance with industry standards across your digital ecosystem.
           </p>
           <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Vulnerability Assessment &amp; Penetration Testing (VAPT)</li>
-            <li><i class="ri-check-line auto-style-45"></i> Secure Code Review</li>
-            <li><i class="ri-check-line auto-style-45"></i> Web Application Firewall (WAF)</li>
-            <li><i class="ri-check-line auto-style-45"></i> Static &amp; Dynamic Application Security Testing (SAST/DAST)</li>
-            <li><i class="ri-check-line auto-style-45"></i> Secure Software Development Lifecycle (SDLC)</li>
+            <li><i class="ri-check-line auto-style-45"></i> Data protection</li>
+            <li><i class="ri-check-line auto-style-45"></i> Privacy &amp; compliance</li>
+            <li><i class="ri-check-line auto-style-45"></i> Risk management</li>
+            <li><i class="ri-check-line auto-style-45"></i> Security governance</li>
           </ul>
         </div>
         
@@ -155,97 +171,101 @@
     </div>
   </section>
 
-  <!-- ===================== BIG DATA SECTION ===================== -->
-  <section class="big-data-platforms section-pad auto-style-36">
+  <!-- ===================== 2. DATA ENGINEERING & MIGRATION ===================== -->
+  <section id="application-security" class="big-data-platforms section-pad auto-style-36">
     <div class="container">
       <div class="auto-style-47">
         
         <!-- RIGHT COLUMN: 3D ILLUSTRATION -->
         <div class="auto-style-38">
-          <img class="auto-style-39" src="assets/images/network-security-transparent.png" alt="Network Security 3D Illustration">
+          <img class="auto-style-39" src="assets/images/services/cyber-security/2.png" alt="Data Engineering & Migration 3D Illustration">
+        </div>
+
+        <!-- LEFT COLUMN: CONTENT -->
+        <div class="auto-style-40">
+          <span class="eyebrow auto-style-41">APPLICATION SECURITY</span>
+          <h2 class="auto-style-42">
+            Build secure applications from development to deployment.
+          </h2>
+          <p class="auto-style-43">
+            Protect applications throughout their lifecycle with secure coding, vulnerability management, and continuous security testing.
+          </p>
+          <ul class="auto-style-44">
+            <li><i class="ri-check-line auto-style-45"></i> Secure SDLC</li>
+            <li><i class="ri-check-line auto-style-45"></i> Vulnerability testing</li>
+            <li><i class="ri-check-line auto-style-45"></i> Code reviews</li>
+            <li><i class="ri-check-line auto-style-45"></i> Web application protection</li>
+          </ul>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. DATA SCIENCE & AI ===================== -->
+  <section id="cloud-infrastructure-security" class="ai-analytics-section section-pad auto-style-46">
+    <div class="container">
+      <div class="auto-style-37">
+
+        <!-- LEFT COLUMN: 3D ILLUSTRATION -->
+        <div class="auto-style-38">
+          <img class="auto-style-39" src="assets/images/services/cyber-security/3.png" alt="Data Science & AI 3D Illustration">
+        </div>
+
+        <!-- RIGHT COLUMN: CONTENT -->
+        <div class="auto-style-40">
+          <span class="eyebrow auto-style-41">CLOUD &amp; INFRASTRUCTURE SECURITY</span>
+          <h2 class="auto-style-42">
+            Secure your cloud infrastructure and critical workloads.
+          </h2>
+          <p class="auto-style-43">
+            Protect cloud environments with identity management, encryption, continuous monitoring, and resilient backup strategies.
+          </p>
+          <ul class="auto-style-44">
+            <li><i class="ri-check-line auto-style-45"></i> Identity &amp; access management</li>
+            <li><i class="ri-check-line auto-style-45"></i> Cloud security monitoring</li>
+            <li><i class="ri-check-line auto-style-45"></i> Encryption</li>
+            <li><i class="ri-check-line auto-style-45"></i> Backup &amp; recovery</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </div>
+
+  </div>
+
+  <!-- ===================== 4. BUSINESS INTELLIGENCE & VISUALIZATION ===================== -->
+  <section id="network-security" class="data-engineering-section section-pad auto-style-36">
+    <div class="container">
+      <div class="auto-style-47">
+        
+        <!-- RIGHT COLUMN: 3D ILLUSTRATION -->
+        <div class="auto-style-38">
+          <img class="auto-style-39" src="assets/images/services/cyber-security/4.png" alt="Business Intelligence & Visualization 3D Illustration">
         </div>
 
         <!-- LEFT COLUMN: CONTENT -->
         <div class="auto-style-40">
           <span class="eyebrow auto-style-41">NETWORK SECURITY</span>
           <h2 class="auto-style-42">
-            Network Security involves implementing measures to protect a network.
+            Defend your network against modern cyber threats.
           </h2>
           <p class="auto-style-43">
-            At Pro17Analytics, Network Security involves implementing advanced measures to protect your network from unauthorized access, threats, and vulnerabilities, ensuring the safety and integrity of your data and systems.
+            Strengthen network resilience with advanced monitoring, threat prevention, segmentation, and secure access controls.
           </p>
           <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Firewall Configuration &amp; Management</li>
-            <li><i class="ri-check-line auto-style-45"></i> Intrusion Detection &amp; Prevention Systems (IDS/IPS)</li>
-            <li><i class="ri-check-line auto-style-45"></i> Network Segmentation &amp; Micro-Segmentation</li>
-            <li><i class="ri-check-line auto-style-45"></i> Network Traffic Analysis &amp; Monitoring</li>
-            <li><i class="ri-check-line auto-style-45"></i> DDoS Protection</li>
+            <li><i class="ri-check-line auto-style-45"></i> Firewall management</li>
+            <li><i class="ri-check-line auto-style-45"></i> Threat detection</li>
+            <li><i class="ri-check-line auto-style-45"></i> Network segmentation</li>
+            <li><i class="ri-check-line auto-style-45"></i> Traffic monitoring</li>
           </ul>
         </div>
         
       </div>
     </div>
   </section>
-
-  <!-- ===================== AI & PREDICTIVE ANALYTICS SECTION ===================== -->
-  <section class="ai-analytics-section section-pad auto-style-46">
-    <div class="container">
-      <div class="auto-style-37">
-
-        <!-- LEFT COLUMN: ANIMATION -->
-        <div class="auto-style-38">
-          <img class="auto-style-39" src="assets/images/cloud-security-transparent.png" alt="Cloud Security 3D Illustration">
-        </div>
-
-        <!-- RIGHT COLUMN: CONTENT -->
-        <div class="auto-style-40">
-          <span class="eyebrow auto-style-41">CLOUD SECURITY</span>
-          <h2 class="auto-style-42">
-            Cloud Security involves implementing measures to protect cloud-based infrastructure.
-          </h2>
-          <p class="auto-style-43">
-            We provide IAM for strong authentication and authorization, Cloud Encryption to protect data, Cloud Vulnerability Management to identify and fix vulnerabilities, Cloud Security Monitoring &amp; Incident Response for threat detection and response, and Cloud Backup &amp; Disaster Recovery to ensure data protection and business continuity.
-          </p>
-          <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Identity &amp; Access Management (IAM)</li>
-            <li><i class="ri-check-line auto-style-45"></i> Cloud Encryption</li>
-            <li><i class="ri-check-line auto-style-45"></i> Cloud Vulnerability Management</li>
-            <li><i class="ri-check-line auto-style-45"></i> Cloud Security Monitoring &amp; Incident Response</li>
-            <li><i class="ri-check-line auto-style-45"></i> Cloud Backup &amp; Disaster Recovery</li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== DATA ENGINEERING ===================== -->
-  <section class="data-engineering-section section-pad auto-style-36">
-    <div class="container">
-      <div class="auto-style-47">
-        <div class="auto-style-38">
-          <img class="auto-style-39" src="assets/images/grc-security-transparent.png" alt="GRC Security 3D Illustration">
-        </div>
-        <div class="auto-style-40">
-          <span class="eyebrow auto-style-41">GOVERNANCE, RISK, AND COMPLIANCE (GRC)</span>
-          <h2 class="auto-style-42">
-            Cloud Security involves implementing measures to protect cloud-based infrastructure.
-          </h2>
-          <p class="auto-style-43">
-            Governance, Risk, and Compliance (GRC) involves aligning IT activities with business goals, managing risks effectively, and ensuring adherence to laws and regulations to maintain operational integrity and accountability.
-          </p>
-          <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Risk Assessment &amp; Management</li>
-            <li><i class="ri-check-line auto-style-45"></i> Regulatory Compliance Internal Audits</li>
-            <li><i class="ri-check-line auto-style-45"></i> Policy Management &amp; Enforcement</li>
-            <li><i class="ri-check-line auto-style-45"></i> Third-Party Risk Management</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
 
   <!-- ===================== FOOTER ===================== -->
 <footer class="footer">

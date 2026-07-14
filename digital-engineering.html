@@ -15,8 +15,10 @@
 </head>
 <body>
 
+  <!-- ===================== HERO & NAV WRAPPER ===================== -->
+  <div class="hero-nav-wrapper">
   <!-- ===================== TOP NAVIGATION ===================== -->
-  <header class="who-we-are-header">
+  <header class="who-we-are-header sticky-header">
     <!-- Nav -->
     <nav class="hb-nav" id="hbNav">
       <a href="index.html" class="hb-logo-link">
@@ -106,10 +108,12 @@
     <div class="container auto-style-2">
       <div class="cta-content auto-style-3" data-animate="fade-up">
         <h1 class="cta-headline auto-style-4">Digital Engineering</h1>
-        <p class="cta-sub auto-style-5">Home \ Digital Engineering</p>
+        <p class="cta-sub auto-style-5"><a href="index.html" class="breadcrumb-link">Home</a> \ <a href="services.html" class="breadcrumb-link">Services</a> \ Digital Engineering</p>
       </div>
     </div>
   </section>
+  </div>
+
   <!-- ===================== INTRO ===================== -->
   <section class="de-intro auto-style-31">
     <div class="container auto-style-32">
@@ -122,27 +126,39 @@
     </div>
   </section>
 
+  <!-- ===================== SECTION NAV WRAPPER ===================== -->
+  <div class="sticky-nav-wrapper">
+  <!-- ===================== SECTION NAV ===================== -->
+  <nav class="section-nav">
+    <div class="container">
+      <ul class="section-nav-list">
+        <li><a href="#web-app" class="section-nav-item active">Web Application Development</a></li>
+        <li><a href="#mobile-app" class="section-nav-item">Mobile Application Development</a></li>
+        <li><a href="#ux-ui" class="section-nav-item">UX/UI Design &amp; Development</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- ===================== WEB APPLICATION DEVELOPMENT ===================== -->
-  <section class="web-app-section section-pad auto-style-36">
+  <section id="web-app" class="web-app-section section-pad auto-style-36">
     <div class="container">
       <div class="auto-style-37">
         <div class="auto-style-38">
-          <!-- Using placeholder image -->
-          <img class="auto-style-39" src="assets/images/data-science-transparent.png" alt="Web Application Development Illustration">
+          <img class="auto-style-39" src="assets/images/services/digital-engineering/1.png" alt="Web Application Development Illustration">
         </div>
         <div class="auto-style-40">
           <span class="eyebrow auto-style-41">WEB APPLICATION DEVELOPMENT</span>
           <h2 class="auto-style-42">
-            Web application development is a core offering of Pro17Analytics, a data analytics solution provider.
+            Build scalable web applications that drive business growth.
           </h2>
           <p class="auto-style-43">
-            Pro17Analytics helps clients to develop custom web applications that enable them to meet their business goals and objectives.
+            Create secure, high-performance web applications tailored to your business needs using modern technologies and best practices.
           </p>
           <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Data integration &amp; engineering</li>
-            <li><i class="ri-check-line auto-style-45"></i> Building predictive models</li>
-            <li><i class="ri-check-line auto-style-45"></i> Enterprise reporting dashboards</li>
-            <li><i class="ri-check-line auto-style-45"></i> Business intelligence/data visualization tools.</li>
+            <li><i class="ri-check-line auto-style-45"></i> Custom web applications</li>
+            <li><i class="ri-check-line auto-style-45"></i> Enterprise solutions</li>
+            <li><i class="ri-check-line auto-style-45"></i> API integration</li>
+            <li><i class="ri-check-line auto-style-45"></i> Scalable architecture</li>
           </ul>
         </div>
       </div>
@@ -150,58 +166,59 @@
   </section>
 
   <!-- ===================== MOBILE APPLICATION DEVELOPMENT ===================== -->
-  <section class="mobile-app-section section-pad auto-style-46">
+  <section id="mobile-app" class="mobile-app-section section-pad auto-style-46">
     <div class="container">
       <div class="auto-style-47">
         <div class="auto-style-38">
-          <!-- Using placeholder image -->
-          <img class="auto-style-39" src="assets/images/data-security-transparent.png" alt="Mobile Application Development Illustration">
+          <img class="auto-style-39" src="assets/images/services/digital-engineering/2.png" alt="Mobile Application Development Illustration">
         </div>
         <div class="auto-style-40">
           <span class="eyebrow auto-style-41">MOBILE APPLICATION DEVELOPMENT</span>
           <h2 class="auto-style-42">
-            Mobile application development is an essential offering of Pro17Analytics.
+            Deliver seamless mobile experiences across every device.
           </h2>
           <p class="auto-style-43">
-            This includes designing and building mobile applications using modern mobile technologies such as React Native and Flutter, and leveraging cloud platforms such as AWS and Azure to deploy and manage mobile applications.
+            Develop high-performance Android and iOS applications that combine intuitive design with reliable functionality.
           </p>
           <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Data integration &amp; engineering</li>
-            <li><i class="ri-check-line auto-style-45"></i> Building predictive models</li>
-            <li><i class="ri-check-line auto-style-45"></i> Enterprise reporting dashboards</li>
-            <li><i class="ri-check-line auto-style-45"></i> Business intelligence/data visualization tools.</li>
+            <li><i class="ri-check-line auto-style-45"></i> iOS &amp; Android apps</li>
+            <li><i class="ri-check-line auto-style-45"></i> Cross-platform development</li>
+            <li><i class="ri-check-line auto-style-45"></i> Cloud-enabled apps</li>
+            <li><i class="ri-check-line auto-style-45"></i> App maintenance</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== UX / UI RESEARCH & DEVELOPMENT ===================== -->
-  <section class="ux-ui-section section-pad auto-style-36">
+  </div>
+
+  <!-- ===================== UX/UI DESIGN & DEVELOPMENT ===================== -->
+  <section id="ux-ui" class="ux-ui-section section-pad auto-style-36">
     <div class="container">
       <div class="auto-style-37">
         <div class="auto-style-38">
-          <!-- Using placeholder image -->
-          <img class="auto-style-39" src="assets/images/data-engineering-transparent.png" alt="UX / UI Research &amp; Development Illustration">
+          <img class="auto-style-39" src="assets/images/services/digital-engineering/3.png" alt="UX/UI Design &amp; Development Illustration">
         </div>
         <div class="auto-style-40">
-          <span class="eyebrow auto-style-41">UX / UI RESEARCH &amp; DEVELOPMENT</span>
+          <span class="eyebrow auto-style-41">UX/UI DESIGN &amp; DEVELOPMENT</span>
           <h2 class="auto-style-42">
-            UX / UI research and development is a critical focus area for Pro17Analytics.
+            Design intuitive digital experiences users love.
           </h2>
           <p class="auto-style-43">
-            Pro17Analytics also offers ongoing UX/UI development services, to ensure that clients are able to continuously improve the user experience of their products. By leveraging its expertise in UX/UI research and development, Pro17Analytics helps clients to enhance user engagement, increase customer satisfaction, and drive business growth.
+            Transform ideas into engaging user experiences with research-driven design, interactive prototypes, and modern interfaces.
           </p>
           <ul class="auto-style-44">
-            <li><i class="ri-check-line auto-style-45"></i> Data integration &amp; engineering</li>
-            <li><i class="ri-check-line auto-style-45"></i> Building predictive models</li>
-            <li><i class="ri-check-line auto-style-45"></i> Enterprise reporting dashboards</li>
-            <li><i class="ri-check-line auto-style-45"></i> Business intelligence/data visualization tools.</li>
+            <li><i class="ri-check-line auto-style-45"></i> User research</li>
+            <li><i class="ri-check-line auto-style-45"></i> Wireframes &amp; prototypes</li>
+            <li><i class="ri-check-line auto-style-45"></i> UI design systems</li>
+            <li><i class="ri-check-line auto-style-45"></i> Usability optimization</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+  </div>
 
   <!-- ===================== FOOTER ===================== -->
 <footer class="footer">

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viktor Oddy - Creative Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style type="text/tailwindcss">
+    @font-face {
+      font-family: 'PP Neue Montreal';
+      src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9bb43e36419997ecfe_PPNeueMontreal-Book.otf') format('opentype');
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'PP Neue Montreal';
+      src: url('https://assets.website-files.com/6009ec8cda7f305645c9d91b/60176f9b39c5673e51a86f5a_PPNeueMontreal-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'PP Mondwest';
+      src: url('/PPMondwest-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    
+    body {
+      font-family: 'PP Neue Montreal', sans-serif;
+      background-color: white;
+      color: #051A24;
+      overflow-x: hidden;
+    }
+    
+    .font-serif-custom {
+      font-family: 'PP Mondwest', serif;
+    }
+    
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+      opacity: 0;
+    }
+    .animate-on-scroll {
+      opacity: 0;
+    }
+    
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+    @media (max-width: 768px) {
+      .animate-marquee {
+        animation: marquee 10s linear infinite;
+      }
+    }
+    
+    .shadow-primary {
+      box-shadow: 0 1px 2px 0 rgba(5,26,36,0.1), 0 4px 4px 0 rgba(5,26,36,0.09), 0 9px 6px 0 rgba(5,26,36,0.05), 0 17px 7px 0 rgba(5,26,36,0.01), 0 26px 7px 0 rgba(5,26,36,0), inset 0 2px 8px 0 rgba(255,255,255,0.5);
+    }
+    .shadow-secondary {
+      box-shadow: 0 0 0 0.5px rgba(0,0,0,0.05), 0 4px 30px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <!-- 1. HERO SECTION -->
+  <section class="max-w-[440px] mx-auto px-6 pt-12 md:pt-16 text-center flex flex-col items-center">
+    <div class="animate-on-scroll" style="animation-delay: 0.1s;">
+      <h1 class="font-serif-custom text-[32px] md:text-[40px] lg:text-[44px] font-semibold text-[#051A24] tracking-tight mb-4">Viktor Oddy</h1>
+    </div>
+    
+    <div class="animate-on-scroll" style="animation-delay: 0.2s;">
+      <p class="font-mono text-xs md:text-sm text-[#051A24] mb-2 uppercase tracking-wider">The creative studio of Viktor Oddy</p>
+    </div>
+    
+    <div class="animate-on-scroll" style="animation-delay: 0.3s;">
+      <h2 class="text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] text-[#0D212C] tracking-tight whitespace-nowrap">
+        Build the <span class="font-serif-custom">next wave,</span><br/>
+        the <span class="font-serif-custom">bold way.</span>
+      </h2>
+    </div>
+    
+    <div class="flex flex-col gap-6 text-sm md:text-base text-[#051A24] leading-relaxed mt-5 md:mt-6 animate-on-scroll text-left md:text-center" style="animation-delay: 0.4s;">
+      <p>I spent seven years at Apple crafting products used by over a billion people. I founded Vortex Studio to bring that same level of thinking to innovators shaping what comes next.</p>
+      <p>The studio is deliberately small. I guide the creative vision on every project, backed by a veteran design crew that moves fast without cutting corners.</p>
+      <p>Projects start at $5,000 per month.</p>
+    </div>
+    
+    <div class="flex flex-col sm:flex-row gap-3 md:gap-4 mt-5 md:mt-6 animate-on-scroll w-full sm:w-auto" style="animation-delay: 0.5s;">
+      <button class="bg-[#051A24] text-white rounded-full px-7 py-3 shadow-primary font-medium hover:opacity-90 transition-opacity">Start a chat</button>
+      <button class="bg-white text-[#051A24] rounded-full px-7 py-3 shadow-secondary font-medium hover:bg-gray-50 transition-colors">View projects</button>
+    </div>
+  </section>
+
+  <!-- 2. INFINITE MARQUEE -->
+  <section class="w-full mt-16 md:mt-20 mb-16 overflow-hidden">
+    <div class="flex w-[200%] animate-marquee">
+      <!-- Original 8 -->
+      <div class="flex flex-nowrap shrink-0 w-1/2">
+        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 1">
+        <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 2">
+        <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 3">
+        <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 4">
+        <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 5">
+        <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 6">
+        <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 7">
+        <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 8">
+      </div>
+      <!-- Duplicated 8 for infinite loop -->
+      <div class="flex flex-nowrap shrink-0 w-1/2">
+        <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 1">
+        <img src="https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 2">
+        <img src="https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 3">
+        <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 4">
+        <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 5">
+        <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 6">
+        <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 7">
+        <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" class="h-[280px] md:h-[500px] object-cover mx-3 rounded-2xl shadow-lg shrink-0" alt="Work 8">
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. TESTIMONIAL QUOTE SECTION -->
+  <section class="py-12 px-6 max-w-2xl mx-auto text-center flex flex-col items-center">
+    <div class="animate-on-scroll mb-6" style="animation-delay: 0.1s;">
+      <i data-lucide="quote" class="w-6 h-6 text-slate-900 mx-auto"></i>
+    </div>
+    
+    <h3 class="animate-on-scroll text-[32px] md:text-[40px] lg:text-[44px] leading-[1.1] text-[#0D212C] tracking-tight mb-8" style="animation-delay: 0.2s;">
+      'I left <span class="font-serif-custom">Apple</span> to build the studio I always wanted to work with'
+    </h3>
+    
+    <div class="animate-on-scroll mb-6" style="animation-delay: 0.3s;">
+      <p class="italic text-sm text-[#273C46]">- Viktor Oddy</p>
+    </div>
+    
+    <div class="animate-on-scroll flex items-center justify-center gap-8 mb-12 font-medium text-slate-900" style="animation-delay: 0.4s;">
+      <span class="w-[80px] text-[24px]">Apple</span>
+      <span class="w-[83px] text-[24px]">IDEO</span>
+      <span class="w-[110px] text-[24px]">Polygon</span>
+    </div>
+    
+    <div class="animate-on-scroll w-full max-w-xs overflow-hidden rounded-2xl shadow-lg" style="animation-delay: 0.5s;">
+      <img src="https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260330_103804_7aa5494f-4d5b-432e-9dc7-20715275f143.png&w=1280&q=85" 
+           alt="Chris Halaska" 
+           id="parallax-img"
+           class="w-full object-cover origin-center scale-110">
+    </div>
+  </section>
+
+  <!-- 4. PRICING SECTION -->
+  <section class="w-full py-12 px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:justify-end md:max-w-4xl mx-auto">
+      
+      <!-- Card 1 (Dark) -->
+      <div class="bg-[#051A24] rounded-[40px] pl-10 pr-10 md:pr-24 pt-10 pb-10 shadow-inner animate-on-scroll" style="animation-delay: 0.1s;">
+        <h4 class="text-[22px] font-medium text-[#F6FCFF] mb-4">Monthly Partnership</h4>
+        <p class="text-[#E0EBF0] mb-8 leading-relaxed">A dedicated creative design team.<br/>You work directly with Viktor.</p>
+        <div class="mb-8">
+          <p class="text-2xl text-[#F6FCFF] font-semibold">$5,000</p>
+          <p class="text-sm text-[#E0EBF0]/70">Monthly</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <a href="https://halaskastudio.com/./book" class="bg-white text-[#051A24] rounded-full px-6 py-3 font-medium text-center hover:bg-gray-100 transition-colors">Start a chat</a>
+          <a href="https://halaskastudio.com/./book" class="text-white border border-white/20 rounded-full px-6 py-3 font-medium text-center hover:bg-white/10 transition-colors">How it works</a>
+        </div>
+      </div>
+      
+      <!-- Card 2 (Light) -->
+      <div class="bg-white rounded-[40px] pl-10 pr-10 md:pr-24 pt-10 pb-10 shadow-secondary animate-on-scroll" style="animation-delay: 0.2s;">
+        <h4 class="text-[22px] font-medium text-[#0D212C] mb-4">Custom Project</h4>
+        <p class="text-[#051A24]/70 mb-8 leading-relaxed">Fixed scope, fixed timeline.<br/>Same team, same standards.</p>
+        <div class="mb-8">
+          <p class="text-2xl text-[#0D212C] font-semibold">$5,000</p>
+          <p class="text-sm text-[#051A24]/50">Minimum</p>
+        </div>
+        <div class="flex flex-col gap-3 mt-auto">
+          <a href="#" class="bg-white text-[#051A24] border border-gray-200 shadow-secondary rounded-full px-6 py-3 font-medium text-center hover:bg-gray-50 transition-colors mt-[52px]">Start a chat</a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIAL CAROUSEL -->
+  <section class="w-full py-20 overflow-hidden relative" id="carousel-section">
+    <div class="md:max-w-4xl mx-auto px-6 mb-8 flex items-center justify-between animate-on-scroll">
+      <h3 class="text-[32px] md:text-[40px] text-[#0D212C] tracking-tight">What <span class="font-serif-custom">builders</span> say</h3>
+      <div class="flex items-center gap-2">
+        <div class="flex">
+          <i data-lucide="star" class="w-5 h-5 fill-black text-black"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-black text-black"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-black text-black"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-black text-black"></i>
+          <i data-lucide="star" class="w-5 h-5 fill-black text-black"></i>
+        </div>
+        <span class="font-medium text-[#0D212C]">Clutch 5/5</span>
+      </div>
+    </div>
+    
+    <div class="relative w-full">
+      <div id="carousel-track" class="flex gap-6 px-6 transition-transform duration-800 ease-[cubic-bezier(0.4,0,0.2,1)]" style="width: max-content;">
+        <!-- Javascript will populate this with tripled items for infinite looping -->
+      </div>
+    </div>
+    
+    <div class="md:max-w-4xl mx-auto px-6 mt-8 flex gap-4">
+      <button id="carousel-prev" class="w-12 h-12 rounded-full border border-[#0D212C]/20 flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <i data-lucide="chevron-left" class="w-6 h-6 text-[#0D212C]"></i>
+      </button>
+      <button id="carousel-next" class="w-12 h-12 rounded-full border border-[#0D212C]/20 flex items-center justify-center hover:bg-gray-50 transition-colors">
+        <i data-lucide="chevron-right" class="w-6 h-6 text-[#0D212C]"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- 6. PROJECTS SECTION -->
+  <section class="max-w-[1200px] mx-auto px-6 py-12 flex flex-col gap-16 md:gap-20">
+    <div class="animate-on-scroll">
+      <div class="ml-20 md:ml-28 mb-6">
+        <h3 class="font-serif-custom text-2xl md:text-3xl font-semibold text-[#051A24]">evr</h3>
+        <p class="text-sm md:text-base text-[#051A24]/70 mt-1">From idea to millions raised for a web3 AI product</p>
+      </div>
+      <img src="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" class="w-full rounded-2xl shadow-lg object-cover" alt="evr project">
+    </div>
+    
+    <div class="animate-on-scroll">
+      <div class="ml-20 md:ml-28 mb-6">
+        <h3 class="font-serif-custom text-2xl md:text-3xl font-semibold text-[#051A24]">Automation Machines</h3>
+        <p class="text-sm md:text-base text-[#051A24]/70 mt-1">Streamlining industrial automation processes</p>
+      </div>
+      <img src="https://motionsites.ai/assets/hero-automation-machines-preview-DlTveRIN.gif" class="w-full rounded-2xl shadow-lg object-cover" alt="Automation Machines">
+    </div>
+    
+    <div class="animate-on-scroll">
+      <div class="ml-20 md:ml-28 mb-6">
+        <h3 class="font-serif-custom text-2xl md:text-3xl font-semibold text-[#051A24]">xPortfolio</h3>
+        <p class="text-sm md:text-base text-[#051A24]/70 mt-1">Modern portfolio management platform</p>
+      </div>
+      <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" class="w-full rounded-2xl shadow-lg object-cover" alt="xPortfolio">
+    </div>
+  </section>
+
+  <!-- 7. PARTNER SECTION -->
+  <section class="w-full py-12 px-6">
+    <div id="partner-section" class="max-w-7xl mx-auto py-48 rounded-[40px] shadow-secondary relative overflow-hidden bg-white cursor-pointer group flex flex-col items-center justify-center">
+      
+      <h2 class="font-serif-custom text-[48px] md:text-[64px] lg:text-[80px] text-[#0D212C] mb-12 relative z-10 pointer-events-none text-center">Partner with us</h2>
+      
+      <button class="bg-[#051A24] text-white rounded-full pl-2 pr-6 py-2 shadow-primary font-medium hover:opacity-90 transition-opacity flex items-center gap-3 relative z-10">
+        <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=150" class="w-10 h-10 rounded-full object-cover" alt="Viktor">
+        Start chat with Viktor
+      </button>
+      
+      <!-- Container for dynamic GIF trails -->
+      <div id="trail-container" class="absolute inset-0 pointer-events-none z-0"></div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer class="w-full py-12 px-6 max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 border-t border-gray-100 mt-12">
+    <div>
+      <button class="bg-[#051A24] text-white rounded-full px-7 py-3 shadow-primary font-medium hover:opacity-90 transition-opacity">Start a chat</button>
+    </div>
+    
+    <div class="flex items-start gap-12">
+      <div class="pt-1">
+        <i data-lucide="arrow-up-right" class="w-6 h-6 text-[#051A24]"></i>
+      </div>
+      <div class="flex flex-col gap-4">
+        <a href="#services" class="text-base text-[#051A24] hover:opacity-70 transition-opacity">Services</a>
+        <a href="#work" class="text-base text-[#051A24] hover:opacity-70 transition-opacity">Work</a>
+        <a href="#about" class="text-base text-[#051A24] hover:opacity-70 transition-opacity">About</a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <a href="https://x.com" target="_blank" class="text-base text-[#051A24] hover:opacity-70 transition-opacity">x.com</a>
+        <a href="https://linkedin.com" target="_blank" class="text-base text-[#051A24] hover:opacity-70 transition-opacity">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 9. COPYRIGHT BAR -->
+  <div class="w-full max-w-[1200px] mx-auto px-6 py-4 flex flex-col sm:flex-row justify-between items-center text-sm text-[#051A24]/70 mb-20">
+    <p>Vortex Studio Limited</p>
+    <p>Austin, USA</p>
+  </div>
+
+  <!-- 10. FIXED BOTTOM NAV -->
+  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white rounded-full px-8 py-2 shadow-primary flex items-center gap-6">
+    <span class="font-serif-custom text-2xl font-semibold text-[#051A24]">V</span>
+    <button class="bg-[#051A24] text-white rounded-full px-6 py-2 text-sm shadow-primary font-medium hover:opacity-90 transition-opacity">Start a chat</button>
+  </div>
+
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // 1. Intersection Observer for Fade In Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    // 2. Parallax Image
+    const parallaxImg = document.getElementById('parallax-img');
+    if (parallaxImg) {
+      window.addEventListener('scroll', () => {
+        requestAnimationFrame(() => {
+          const rect = parallaxImg.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          // Calculate offset based on scroll position relative to viewport
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            const scrollPercent = (windowHeight - rect.top) / (windowHeight + rect.height);
+            // -100px to +100px
+            const offset = (scrollPercent * 200) - 100;
+            parallaxImg.style.transform = `scale(1.1) translateY(${offset * 0.3}px)`;
+          }
+        });
+      });
+    }
+
+    // 3. Testimonial Carousel
+    const testimonials = [
+      { name: "Marcus Anderson", role: "CEO, Data.storage", quote: "With very little guidance team delivered designs that were consistently spot on...", img: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=150" },
+      { name: "alexwu", role: "Founder, Nexgate", quote: "Viktor led the creation of our best fundraising deck to date!...", img: "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150" },
+      { name: "James Mitchell", role: "VP Product, LaunchPad", quote: "Working with Viktor transformed our product vision...", img: "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150" },
+      { name: "Rachel Foster", role: "Co-founder, Nexus Labs", quote: "The design quality exceeded our expectations...", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=150" },
+      { name: "David Zhang", role: "Head of Design, Paradigm Labs", quote: "Incredible work from start to finish...", img: "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=150" }
+    ];
+
+    const track = document.getElementById('carousel-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const section = document.getElementById('carousel-section');
+    
+    // Triple the array for infinite effect
+    const carouselData = [...testimonials, ...testimonials, ...testimonials];
+    
+    // Build HTML
+    carouselData.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = "w-[calc(100vw-48px)] md:w-[427.5px] shrink-0 bg-white rounded-[32px] md:rounded-[40px] shadow-secondary px-6 md:pl-10 md:pr-10 py-8 flex flex-col gap-6";
+      card.innerHTML = `
+        <div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-gray-300">
+            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2H4c-1.25 0-2 .75-2 2v12c0 4 1 6 1 6Z" fill="currentColor"/>
+            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.75-2-2-2h-4c-1.25 0-2 .75-2 2v12c0 4 1 6 1 6Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="text-base text-[#0D212C] leading-relaxed flex-grow">"${item.quote}"</p>
+        <div class="flex items-center gap-4 mt-auto">
+          <img src="${item.img}" class="w-12 h-12 rounded-full object-cover">
+          <div>
+            <p class="font-semibold text-sm text-[#051A24]">${item.name}</p>
+            <p class="text-xs text-[#051A24]/70">→ ${item.role}</p>
+          </div>
+        </div>
+      `;
+      track.appendChild(card);
+    });
+
+    let currentIndex = testimonials.length; // Start in the middle set
+    let cardWidth = 0;
+    
+    function updateCarouselLayout() {
+      // Card width + gap
+      cardWidth = (window.innerWidth <= 768 ? window.innerWidth - 48 : 427.5) + 24; 
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+    
+    window.addEventListener('resize', updateCarouselLayout);
+    // Initial call after small delay for rendering
+    setTimeout(updateCarouselLayout, 100);
+
+    function moveCarousel(direction) {
+      if (direction === 'next') currentIndex++;
+      else currentIndex--;
+      
+      track.style.transition = 'transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+      
+      // Infinite snap logic
+      setTimeout(() => {
+        if (currentIndex <= 0) {
+          currentIndex = testimonials.length;
+          track.style.transition = 'none';
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        } else if (currentIndex >= testimonials.length * 2) {
+          currentIndex = testimonials.length;
+          track.style.transition = 'none';
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+      }, 800);
+    }
+
+    prevBtn.addEventListener('click', () => moveCarousel('prev'));
+    nextBtn.addEventListener('click', () => moveCarousel('next'));
+
+    let autoScrollInterval = setInterval(() => moveCarousel('next'), 3000);
+    
+    section.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+    section.addEventListener('mouseleave', () => {
+      autoScrollInterval = setInterval(() => moveCarousel('next'), 3000);
+    });
+
+    // 4. Partner Section Interactive Trail
+    const partnerSection = document.getElementById('partner-section');
+    const trailContainer = document.getElementById('trail-container');
+    const gifUrls = [
+      "https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif",
+      "https://motionsites.ai/assets/hero-portfolio-cosmic-preview-BpvWJ3Nc.gif",
+      "https://motionsites.ai/assets/hero-velorah-preview-CJNTtbpd.gif",
+      "https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif",
+      "https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif"
+    ];
+    
+    let lastSpawnTime = 0;
+    const SPAWN_DELAY = 80; // ms
+
+    partnerSection.addEventListener('mousemove', (e) => {
+      const currentTime = Date.now();
+      if (currentTime - lastSpawnTime < SPAWN_DELAY) return;
+      lastSpawnTime = currentTime;
+
+      const rect = partnerSection.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const img = document.createElement('img');
+      // Random GIF
+      img.src = gifUrls[Math.floor(Math.random() * gifUrls.length)];
+      // Random rotation between -10 and +10
+      const rotation = (Math.random() * 20) - 10;
+      
+      img.className = 'absolute w-40 h-28 object-cover rounded-xl shadow-lg pointer-events-none';
+      img.style.left = `${x - 80}px`;
+      img.style.top = `${y - 56}px`;
+      img.style.transform = `rotate(${rotation}deg) scale(1)`;
+      img.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+      img.style.opacity = '1';
+      
+      trailContainer.appendChild(img);
+
+      // Trigger animation next frame
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          img.style.opacity = '0';
+          img.style.transform = `rotate(${rotation}deg) scale(0.5)`;
+        });
+      });
+
+      // Cleanup
+      setTimeout(() => {
+        if (trailContainer.contains(img)) {
+          trailContainer.removeChild(img);
+        }
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

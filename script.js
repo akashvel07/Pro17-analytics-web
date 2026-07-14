@@ -433,6 +433,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!activeLink) return;
       indicator.style.width = activeLink.offsetWidth + 'px';
       indicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
+      
+      // Auto-scroll the nav container to keep active tab centered on mobile
+      if (window.innerWidth <= 991 && sectionNavList) {
+        const linkLeft = activeLink.offsetLeft;
+        const linkWidth = activeLink.offsetWidth;
+        const listWidth = sectionNavList.offsetWidth;
+        sectionNavList.scrollTo({
+          left: linkLeft - (listWidth / 2) + (linkWidth / 2),
+          behavior: 'smooth'
+        });
+      }
     }
 
     // Set initial indicator position
@@ -471,4 +482,81 @@ document.addEventListener('DOMContentLoaded', () => {
       if (activeLink) updateIndicator(activeLink);
     });
   }
+
+  /* ── COOKIE BANNER ── */
+  const cookieConsent = localStorage.getItem('cookieConsent');
+  if (!cookieConsent) {
+    const bannerHTML = `
+      <div id="cookie-banner">
+        <div class="cookie-text">
+          We use essential, performance, and functionality cookies to improve your experience. 
+          By using our site, you agree to our <a href="cookie-policy.html">Cookie Policy</a>.
+        </div>
+        <div class="cookie-buttons">
+          <button class="btn-cookie-decline" id="btn-cookie-decline">Decline</button>
+          <button class="btn-cookie-accept" id="btn-cookie-accept">Accept All</button>
+        </div>
+      </div>
+    `;
+    document.body.insertAdjacentHTML('beforeend', bannerHTML);
+    const banner = document.getElementById('cookie-banner');
+    
+    // Slight delay to allow CSS transition
+    setTimeout(() => {
+      banner.classList.add('show');
+    }, 100);
+
+    document.getElementById('btn-cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.remove('show');
+    });
+
+    document.getElementById('btn-cookie-decline').addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      banner.classList.remove('show');
+    });
+  }
 });
+
+/* ==========================================
+   CONTACT PAGE ACTIONS
+   ========================================== */
+document.addEventListener('DOMContentLoaded', () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+  // Phone click handling
+  document.querySelectorAll('.phone-action').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const phone = el.getAttribute('data-phone');
+      if (isMobile) {
+        window.location.href = 'tel:' + phone;
+      } else {
+        navigator.clipboard.writeText(phone).then(() => {
+          const originalText = el.innerText;
+          el.innerText = 'Copied!';
+          setTimeout(() => { el.innerText = originalText; }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy: ', err);
+        });
+      }
+    });
+  });
+
+  // Address click handling
+  document.querySelectorAll('.address-action').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const address = el.getAttribute('data-address');
+      let url = '';
+      if (isIOS) {
+        url = 'https://maps.apple.com/?daddr=' + encodeURIComponent(address);
+      } else {
+        url = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(address);
+      }
+      window.open(url, '_blank');
+    });
+  });
+});
+
