@@ -1,4 +1,4 @@
-/* ==============================================
+﻿/* ==============================================
    PRO17 ANALYTICS — REDESIGN CSS
    Brand Colors:
      Primary:   #911A1C (Deep Crimson)
@@ -4581,4 +4581,9 @@ textarea {
   box-shadow: 0 0 30px rgba(145,26,28,0.85), 0 4px 16px rgba(0,0,0,0.4) !important;
   transform: scale(1.1) !important;
 }
+
+
+/* Responsive Base Typography Scaling */
+@media (min-width: 1440px) { html { font-size: 112.5%; } } /* 18px base */
+@media (min-width: 1920px) { html { font-size: 125%; } } /* 20px base */
 
