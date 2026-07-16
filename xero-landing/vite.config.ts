@@ -4,4 +4,11 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: './',
+  build: {
+    rollupOptions: {
+      input: 'indexi2.html',
+    },
+    outDir: 'dist',
+  },
 })
