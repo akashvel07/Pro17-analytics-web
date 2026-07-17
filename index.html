@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -15,6 +15,18 @@
   <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
   <link href="https://fonts.cdnfonts.com/css/cal-sans" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function() {
+      const currentTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (currentTheme === 'dark' || (!currentTheme && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 </head>
 
 <body>
@@ -24,35 +36,83 @@
     <!-- Video moved to hb-right -->
 
     <!-- Nav -->
-    <nav class="hb-nav" id="hbNav">
-      <a href="index.html" class="hb-logo-link">
-        <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" class="hb-logo-img" width="100" height="60">
+    <nav class="top-nav">
+      <a href="index.html" class="nav-logo-link">
+        <img src="https://pro17analytics.com/assets/images/pro17analytics-logo.png" alt="Pro17 Analytics" style="height: 32px; filter: var(--logo-filter, brightness(0));" />
       </a>
-      <ul class="hb-nav-links" id="hbNavLinks">
-        <li><a href="index.html" class="hb-link active">Home</a></li>
-        <li><a href="about.html" class="hb-link">About</a></li>
-        <li>
-          <a href="services.html" class="hb-link">
-            Services
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9l6 6 6-6" />
+      
+      <div class="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" style="color: #ff3366; font-weight: 600;">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li class="has-mega-menu" style="display: flex; align-items: center; gap: 4px;">
+            <a href="services.html">Services</a>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5; margin-top: 2px;">
+              <polyline points="1 1 5 5 9 1"></polyline>
             </svg>
-          </a>
-        </li>
-        <li>
-          <a href="expertise.html" class="hb-link">
-            Expertise
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 9l6 6 6-6" />
+            <div class="mega-menu">
+              <div class="mega-menu-inner">
+                <div class="mega-left">
+                  <a href="services.html" class="mega-overview">Go to overview <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                </div>
+                <div class="mega-right">
+                  <h4 class="mega-heading">Services</h4>
+                  <div class="mega-grid">
+                    <div class="mega-col">
+                      <a href="data-analytics.html">Data Analytics</a>
+                      <a href="cloud-engineering.html">Cloud Engineering</a>
+                    </div>
+                    <div class="mega-col">
+                      <a href="digital-engineering.html">Digital Engineering</a>
+                      <a href="cyber-security.html">Cyber Security</a>
+                    </div>
+                    <div class="mega-col">
+                      <a href="consulting-services.html">Consulting Services</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="has-mega-menu" style="display: flex; align-items: center; gap: 4px;">
+            <a href="expertise.html">Expertise</a>
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.5; margin-top: 2px;">
+              <polyline points="1 1 5 5 9 1"></polyline>
             </svg>
-          </a>
-        </li>
-        <li><a href="contact.html" class="hb-link">Contact</a></li>
-      </ul>
-      <button class="hb-menu-btn" id="hbMenuBtn" aria-label="Open menu">
-        <span></span><span></span><span></span>
+            <div class="mega-menu">
+              <div class="mega-menu-inner">
+                <div class="mega-left">
+                  <a href="expertise.html" class="mega-overview">Go to overview <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                </div>
+                <div class="mega-right">
+                  <h4 class="mega-heading">Expertise</h4>
+                  <div class="mega-grid">
+                    <div class="mega-col">
+                      <a href="data-ai.html">Data & AI</a>
+                      <a href="modern-applications.html">Modern Applications</a>
+                    </div>
+                    <div class="mega-col">
+                      <a href="iot-solutions.html">IoT Solutions</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 16px;">
+          <button class="theme-toggle-btn" aria-label="Toggle theme">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
+          <a href="contact.html" class="btn-signup">Let's talk</a>
+        </div>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
       </button>
     </nav>
 
@@ -77,14 +137,11 @@
       <div class="hb-left">
         <p class="hb-eyebrow">ENTERPRISE AI • DATA • CLOUD</p>
         <h1 class="hb-heading">
-          <div class="hb-word-wrap">
-            <div class="hb-word" id="hbW1">TRANSFORM</div>
+          <div class="hb-word-wrap" style="padding-bottom: 15px;">
+            <div class="hb-word" id="hbW1">TRANSFORM DATA</div>
           </div>
           <div class="hb-word-wrap">
-            <div class="hb-word" id="hbW2">DATA INTO</div>
-          </div>
-          <div class="hb-word-wrap">
-            <div class="hb-word" id="hbW3">INTELLIGENCE</div>
+            <div class="hb-word" id="hbW2">INTO INTELLIGENCE</div>
           </div>
         </h1>
         <p class="hb-para" id="hbPara">
@@ -209,6 +266,54 @@
     </div>
   </section>
 
+  <!-- ===================== OUR IMPACT ===================== -->
+  <section class="impact-section section-pad">
+    <div class="container">
+      <div class="impact-grid">
+        <div class="impact-left">
+          <h2>Our Impact</h2>
+          <p>No project is beyond our scope. We operate at scale, leveraging advanced analytics and AI technology to serve enterprises across diverse sectors and terrains.</p>
+        </div>
+        <div class="impact-right">
+          <div class="impact-stat">
+            <div class="stat-number">20+</div>
+            <div class="stat-title">Years of Innovation</div>
+            <div class="stat-desc">Years of delivering cutting-edge analytics and digital solutions.</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-title">Enterprise AI Models</div>
+            <div class="stat-desc">Advanced machine learning models deployed in diverse conditions.</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">150+</div>
+            <div class="stat-title">Cloud Migrations</div>
+            <div class="stat-desc">Successful infrastructure migrations across various industries.</div>
+          </div>
+          <div class="impact-stat">
+            <div class="stat-number">98%</div>
+            <div class="stat-title">Client Satisfaction</div>
+            <div class="stat-desc">Our commitment to excellence is reflected in client feedback.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECONDARY NAV -->
+  <div class="secondary-nav" id="secondaryNav">
+    <ul>
+      <li class="active"><a href="#services">What We Do</a></li>
+      <li><a href="#who-we-are">Who We Are</a></li>
+      <li><a href="#how-we-work">How We Work</a></li>
+      <li><a href="#domain-expertise">Our Domain Expertise</a></li>
+      <li><a href="#affiliations">Our Affiliations</a></li>
+
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Get in Touch</a></li>
+    </ul>
+  </div>
+
   <!-- ===================== SERVICES (BLOOMFI LAYOUT) ===================== -->
   <section class="services-section section-pad" id="services">
     <div class="container">
@@ -310,7 +415,7 @@
   </section>
 
   <!-- ===================== ABOUT / STORY SPLIT ===================== -->
-  <section class="about-section section-pad" id="about">
+  <section class="about-section section-pad" id="who-we-are">
     <div class="container">
       <div class="about-split">
         <div class="about-content" data-animate="fade-right">
@@ -497,7 +602,7 @@
   </section>
 
   <!-- ===================== PROCESS ===================== -->
-  <section class="process-section section-pad bg-soft">
+  <section class="process-section section-pad bg-soft" id="how-we-work">
     <div class="container">
       <div class="section-head center" data-animate="fade-up">
         <span class="eyebrow">How We Work</span>
@@ -544,7 +649,7 @@
   </section>
 
 <!-- ===================== DOMAIN EXPERTISE & PARTNERS ===================== -->
-  <section class="domain-expertise-section section-pad auto-style-70">
+  <section class="domain-expertise-section section-pad auto-style-70" id="domain-expertise">
     <div class="container">
 
       <!-- DOMAIN EXPERTISE -->
@@ -597,7 +702,7 @@
     .domain-title {
       font-size: 1rem;
       font-weight: 600;
-      color: #1a1a1a;
+      color: var(--heading);
     }
   </style>
 
@@ -634,7 +739,7 @@
       
 
       <!-- PARTNERS AND CERTIFICATION -->
-      <div class="auto-style-105">
+      <div class="auto-style-105" id="affiliations">
 
         <span class="eyebrow">Our Affiliations</span>
         <h2 class="section-title auto-style-106">Partners and Certification</h2>
@@ -654,40 +759,6 @@
 
 
   <!-- ===================== TECHNOLOGIES WE LEVERAGE ===================== -->
-  <section class="tech-section section-pad auto-style-70">
-    <div class="container">
-      <div class="section-head center" data-animate="fade-up">
-        <span class="eyebrow">Our Tech Stack</span>
-        <h2 class="section-title auto-style-110">Technologies We <span>Currently Leverage</span></h2>
-        <div class="auto-style-111"></div>
-      </div>
-
-
-      <!-- Logos Grid -->
-      <div class="tech-logos-grid auto-style-112">
-        <!-- Cloud & Data -->
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" alt="Azure Web App"><div class="auto-style-115">Azure</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/googlecloud/googlecloud-original.svg" alt="GCP Suite"><div class="auto-style-115">GCP Suite</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS"><div class="auto-style-115">AWS</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-original.svg" alt="Firebase"><div class="auto-style-115">Firebase</div></div>
-        
-        <!-- Data & Analytics -->
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg" alt="SQL Server"><div class="auto-style-115">SQL Server</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.simpleicons.org/databricks/FF3621" alt="Databricks"><div class="auto-style-115">Databricks</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"><div class="auto-style-115">Power BI</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Tableau_Logo.png" alt="Tableau"><div class="auto-style-115">Tableau</div></div>
-
-        <!-- Programming & Frameworks -->
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter"><div class="auto-style-115">Flutter</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dart/dart-original.svg" alt="Dart"><div class="auto-style-115">Dart</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" alt="Swift"><div class="auto-style-115">Swift</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kotlin/kotlin-original.svg" alt="Kotlin"><div class="auto-style-115">Kotlin</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"><div class="auto-style-115">Python</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" alt="Node.js"><div class="auto-style-115">Node.js</div></div>
-        <div class="tech-logo-item auto-style-113"><img class="auto-style-114" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg" alt="GraphQL"><div class="auto-style-115">GraphQL</div></div>
-      </div>
-    </div>
-  </section>
 
   <!-- ===================== TESTIMONIALS ===================== -->
   <section class="testimonials-section section-pad" id="testimonials">
@@ -916,6 +987,39 @@
       <polyline points="5 12 12 5 19 12"></polyline>
     </svg>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('#secondaryNav ul li a');
+      const sections = Array.from(navLinks)
+        .map(link => {
+          const href = link.getAttribute('href');
+          return href.startsWith('#') ? document.querySelector(href) : null;
+        })
+        .filter(Boolean);
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-40% 0px -60% 0px', // Trigger slightly above center
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              link.parentElement.classList.remove('active');
+              if (link.getAttribute('href') === '#' + id) {
+                link.parentElement.classList.add('active');
+              }
+            });
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 
 </html>
