@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateIcons(theme) {
     themeToggleBtns.forEach(btn => {
-      btn.innerHTML = theme === 'dark' ? moonSVG : sunSVG;
+      btn.innerHTML = theme === 'dark' ? sunSVG : moonSVG;
     });
   }
 
@@ -600,6 +600,55 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       window.open(url, '_blank');
     });
+  });
+
+  // Typewriter effect for CTA Headline (h2)
+  const ctaHeadline = document.querySelector('h2.cta-headline');
+  if (ctaHeadline) {
+    const text = ctaHeadline.textContent;
+    ctaHeadline.textContent = '';
+    ctaHeadline.classList.add('typewriter-active');
+    
+    let index = 0;
+    function type() {
+      if (index < text.length) {
+        ctaHeadline.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 50);
+      } else {
+        ctaHeadline.classList.remove('typewriter-active');
+      }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          type();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(ctaHeadline);
+  }
+
+  // Active topbar nav link auto-highlight
+  const pageName = window.location.pathname.split("/").pop() || 'index.html';
+  document.querySelectorAll('.top-nav .nav-links a').forEach(link => {
+    link.removeAttribute('style'); // Clear any hardcoded inline style (e.g. from index.html)
+    const linkHref = link.getAttribute('href');
+    
+    const isServiceSubpage = ['data-analytics.html', 'cloud-engineering.html', 'digital-engineering.html', 'cyber-security.html', 'consulting-services.html'].includes(pageName);
+    const isExpertiseSubpage = ['data-ai.html', 'modern-applications.html', 'iot-solutions.html'].includes(pageName);
+    
+    if (
+      linkHref === pageName || 
+      (linkHref === 'services.html' && isServiceSubpage) ||
+      (linkHref === 'expertise.html' && isExpertiseSubpage)
+    ) {
+      link.style.color = 'var(--brand)';
+      link.style.fontWeight = '700';
+    }
   });
 });
 
